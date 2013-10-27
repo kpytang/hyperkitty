@@ -1,14 +1,5 @@
 /* Summary page */
 
-#overview #breadcrumb {
-    font-weight: normal;
-    font-size: 12px;
-}
-#overview #breadcrumb .root:after {
-	content: ">";
-	color: #000;
-}
-
 #overview h3 {
     line-height: 1.5em;
     margin-top: 3em;
@@ -21,16 +12,13 @@
 #chart-data rect {
     cursor: pointer;
 }
-
 #fig, #chart-data {
-  position: relative;
-  margin: auto;
-  font-size: 8pt;
-  font-family: "Droid Sans", sans-serf;
-  font-color: #777;
+	position: relative;
+	margin: auto;
+	font-size: 8pt;
+	font-family: "Droid Sans", sans-serf;
+	font-color: #777;
 }
-
-
 #fig .axis path, #fig .axis line,
 #chart-data .axis path, #chart-data .axis line {
 /*
@@ -40,15 +28,12 @@
 */
   display: none;
 }
-
 #fig .area,
 #chart-data .bars rect {
   fill: steelBlue;
 }
 
-
 /* Next 2 blocks for grid lines */
-
 /*
 #fig .grid .tick,
 #chart-data .grid .tick {
@@ -61,7 +46,6 @@
     stroke-width: 0;
 }
 */
-
 /*
 #overview .widget {
     padding: 1em;
@@ -72,7 +56,6 @@
     margin: 1em 0;
 }
 */
-
 /*
 .category {
     font-variant: small-caps;
@@ -99,35 +82,79 @@
 }
 */
 
+#highlights {
+	padding-left: 0;
+}
+#highlights #breadcrumb .root:after {
+	content: ">";
+	color: #000;
+}
+#highlights svg {
+	padding-top: 3px;
+	border: 1px solid #bbb;
+}
+
+#statistics {
+	color: #555;
+}
+#statistics #chart-caption {
+	font-size: x-small;
+	margin-top: -0.25em;
+}
+#statistics .duration-text {
+	margin-bottom: 0.25em;
+}
+#statistics .list-stats .item {
+	display: table-row;
+}
+#statistics .list-stats .item > * {
+	display: table-cell;
+}
+#statistics .list-stats i {
+	padding-right: 0.25em;
+}
+
 .maker {
     color: rgb(102, 102, 102);
-    padding-bottom: 20px;
-}
-.maker-id, .maker-name {
-    font-weight: bold;
-    font-size: small;
+    padding-bottom: 1.43em;
 }
 .maker-details {
-	margin-left: 5px;
+	margin-left: 0.5em;
 }
 .maker-id {
   color: #aaa;
 }
-.score{
-    font-weight: bold;
+
+#most-active h3 {
+	margin-top: 0;
 }
 
+/* this needs to be integrated into hyperkitty-threadslist.css eventually */
+#discussions .thread {
+	border: 1px solid #e5e5e5;
+	margin: 0.25em 0;
+	min-height: 1.2em;
+}
+.thread-title-info {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	padding: 0.5em;
+}
+.thread-stats {
+    padding: 0.5em 0;
+}
+.thread-stats ul {
+	text-align: right;
+	margin: 0.2em 0 0;
+	line-height: 1em;
+}
+
+#overview .category {
+    margin-right: 2em;
+}
 
 /* Threads by category */
-#discussions {
-/*
-  margin-top: 3em;
-  padding-left: 1%;
-  float: right;
-  width: 74%;
-*/
-	
-}
 #discussion-by-category h4 {
     font-size: 105%;
     line-height: 105%;
@@ -147,78 +174,3 @@
 #discussion-by-category .thread .category {
     display: none;
 }
-
-#highlights {
-	padding-left: 0;
-}
-#highlights h2 {
-	margin-bottom: 0;
-}
-#highlights #description {
-	font-size: 12pt;
-	font-weight: normal;
-}
-#highlights svg {
-	padding-top: 3px;
-	border: 1px solid #bbb;
-}
-
-.thread-new span {
-	padding-right: 0.5em;
-}
-
-section#statistics {
-	color: #555;
-}
-section#statistics .caption {
-	font-size: x-small;
-	color: #aaa;
-	margin-top: -0.75em;
-}
-section#statistics i {
-	padding-right: 0.5em;
-}
-section#statistics p {
-	padding-top: 0.75em;
-	margin-bottom: 0.25em;
-}
-section#statistics ul {
-	list-style-type: none;
-	padding-left: 1em;
-}
-section#statistics li {
-	font-size: small;
-}
-
-section#most-active h3 {
-	margin-top: 0;
-}
-
-/* this needs to be integrated into hyperkitty-threadslist.css eventually */
-article.thread {
-	border: 1px solid #e5e5e5;
-	margin: 0.25em 0;
-	min-height: 1.2em;
-}
-.thread-title-info {
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	padding: 0.5em;
-}
-.thread-stats {
-    padding: 0.5em 0;
-}
-.thread-stats ul {
-	text-align: right;
-	margin: 0;
-	line-height: 1em;
-}
-.thread-stats ul li {
-	padding-right: 0.5em;
-}
-
-#overview .category {
-    margin-right: 2em;
-}
-

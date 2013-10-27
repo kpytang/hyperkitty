@@ -4,7 +4,7 @@
 
 <article class="thread row">
 	<div class="thread-title-info thread-title col-md-8 pull-left">
-		{% if counter %}<span class="thread-id">#{{counter}}</span>{% endif %}
+		{% if counter %}<strong><span class="thread-id">#{{counter}}</span></strong>{% endif %}
 		<a name="{{thread.thread_id}}"
 			href="{% url 'thread' threadid=thread.thread_id mlist_fqdn=mlist.name %}"
 			>
@@ -30,7 +30,8 @@
 				{{ thread.length }}
 			</li>
 			<li>
-				<i class="{{ thread.likestatus }}"></i>+{{ thread.likes }}/-{{ thread.dislikes }}
+				<i class="likestatus {{ thread.likestatus }}"></i>
+				<strong>+{{ thread.likes }}/-{{ thread.dislikes }}</strong>
 			</li>
 		</ul>
 	</div>

@@ -1,16 +1,66 @@
 /* Summary page */
 
-#overview h2 #breadcrumb {
+#overview #breadcrumb {
     font-weight: normal;
     font-size: 12px;
 }
+#overview #breadcrumb .root:after {
+	content: ">";
+	color: #000;
+}
 
 #overview h3 {
-    font-size: 14px;
-    line-height: 28px;
-    margin-bottom: 0.5em;
+    line-height: 1.5em;
     margin-top: 0;
+	color: #999;
+	text-transform: uppercase;
+	font-size: small;
+	font-weight: normal;
 }
+
+#chart-data rect {
+    cursor: pointer;
+}
+
+#fig, #chart-data {
+  position: relative;
+  margin: auto;
+  font-size: 8pt;
+  font-family: "Droid Sans", sans-serf;
+  font-color: #777;
+}
+
+
+#fig .axis path, #fig .axis line,
+#chart-data .axis path, #chart-data .axis line {
+/*
+  fill: none;
+  stroke: #bbb;
+  shape-rendering: geometricPrecision;
+*/
+  display: none;
+}
+
+#fig .area,
+#chart-data .bars rect {
+  fill: steelBlue;
+}
+
+
+/* Next 2 blocks for grid lines */
+
+/*
+#fig .grid .tick,
+#chart-data .grid .tick {
+    stroke: lightgrey;
+    opacity: 0.3;
+}
+
+#fig .grid path,
+#chart-data .grid path {
+    stroke-width: 0;
+}
+*/
 
 /*
 #overview .widget {
@@ -65,28 +115,32 @@
 
 .maker {
     color: rgb(102, 102, 102);
-    padding-right: 10px;
     padding-bottom: 20px;
 }
-
 .maker-id, .maker-name {
     font-weight: bold;
-    font-size: 115%;
-    vertical-align: top;
-    padding-right: 3px;
+    font-size: small;
 }
-
-.maker .gravatar {
-    padding-right: 20px;
+.maker-details {
+	margin-left: 5px;
 }
-
+.maker-id {
+  color: #aaa;
+}
 .score{
     font-weight: bold;
 }
 
 
 /* Threads by category */
-
+#discussions {
+/*
+  margin-top: 3em;
+  padding-left: 1%;
+  float: right;
+  width: 74%;
+*/
+}
 #discussion-by-category h4 {
     font-size: 105%;
     line-height: 105%;
@@ -107,106 +161,79 @@
     display: none;
 }
 
-
-section#title h2 {
-
+section#highlights {
+	padding-left: 0px;
+}
+section#highlights h2 {
   margin-bottom: 0px;
 }
-
-
-section#title #description {
+section#highlights #description {
   font-size: 12pt;
   font-weight: normal;
 }
-
-section#title .chart {
-  margin-top: 1.5em;
-  height: 60px;
-}
-section#title .chart-data {
+section#highlights svg {
+  padding-top: 3px;
   border: 1px solid #bbb;
 }
+section#highlights #chart {
+  /*margin-top: 2em;*/
+}
 
-section#title p.thread-new {
-  text-align: left;
-  margin-top: 2em;
+.thread-new span {
+	padding-right: 0.5em;
 }
 
 section#statistics {
-  color: #555;
+	color: #555;
 }
-
 section#statistics .caption {
-  font-size: x-small;
-  color: #aaa;
-  margin-top: -.5%;
-  margin-left: .25em;
-  margin-bottom: 0px;
+	font-size: x-small;
+	color: #aaa;
+	margin-top: -0.75em;
 }
-
+section#statistics p {
+	padding-top: 0.75em;
+	margin-bottom: 0.25em;
+}
 section#statistics ul {
-  list-style-type: none;
-  margin-left: 0px;
+	list-style-type: none;
+	padding-left: 1em;
 }
-
 section#statistics li {
-  font-size: small;
+	font-size: small;
 }
-
-section#statistics h3 {
-  margin-bottom: .5em;
-  margin-top: 3em;
-}
-
-#overview h3 {
-  color: #999;
-  text-transform: uppercase;
-  font-size: small;
-  font-weight: normal;
-}
-
-
-#title {
-  float: left;
-  width: 23%;
-  min-width: 20%;
-  margin-right: 2%;
-}
-
-#discussions {
-  margin-top: 3em;
-  padding-left: 1%;
-  float: right;
-  width: 74%;
+section#statistics h3,
+section#discussion-maker h3 {
+	margin-top: 3em;
 }
 
 /* this needs to be integrated into hyperkitty-threadslist.css eventually */
-#overview div.thread {
+div.thread {
   border: 1px solid #e5e5e5;
   padding: 1%;
-  margin: .5%;
+  margin: .5% !important;
 }
 
-#overview .thread {
+.thread {
   min-height: 1.2em;
 }
 
-#overview .widget {
+.widget {
   clear: both;
   margin-bottom: 2em;
 }
 
-#overview .thread ul.inline-block {
+.thread ul.inline-block {
   width: 28%;
 }
 
-#overview .thread ul.inline-block li,
-#overview .thread ul.inline-block span {
+.thread ul.inline-block li,
+.thread ul.inline-block span {
   text-align: left;
   min-width: 6.5%;
 }
 
-#overview .thread-title {
+.thread-title {
   width: 68%;
   float: left;
   white-space: nowrap;
@@ -216,24 +243,14 @@ section#statistics h3 {
 }
 
 
-#overview .maker-name, .maker-id {
+.maker-name, .maker-id {
   font-size: small;
 }
 
-#overview .maker-id {
+.maker-id {
   color: #aaa;
 }
 
-#overview .thread-id {
+.thread-id {
   float: left;
-}
-
-#overview .maker-name {
-  display: block !important;
-  max-width: 152px !important;
-  word-wrap: break-word !important;
-}
-
-#overview .maker .gravatar {
-  padding-right: 5px;
 }

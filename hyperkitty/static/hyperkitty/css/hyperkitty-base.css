@@ -4,11 +4,13 @@ body {
 	background-color: white;
 }
 
-ul.nav.auth {
-    margin: 0;
+ul.auth {
+    margin-right: -2em;
 }
-.navbar-header {
+.container>.navbar-header {
 	padding-left: 0;
+	padding-right: 0;
+	margin-right: -0.5em;
 }
 .navbar .breadcrumb {
     padding: 1em 2em 0 0;

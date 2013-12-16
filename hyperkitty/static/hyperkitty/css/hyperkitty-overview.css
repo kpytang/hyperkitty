@@ -85,10 +85,16 @@
 #highlights {
 	padding-left: 0;
 }
-#highlights #breadcrumb .root:after {
-	content: ">";
-	color: #000;
+section#title h2 {
+
+  margin-bottom: 0px;
 }
+
+section#title #description {
+  font-size: 12pt;
+  font-weight: normal;
+}
+
 #highlights svg {
 	padding-top: 3px;
 	border: 1px solid #bbb;

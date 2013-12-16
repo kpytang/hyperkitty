@@ -20,6 +20,7 @@
     {% load i18n %}
 
     <body>
+		
 		<nav class="navbar navbar-fixed-top navbar-default">
 			<div class="container">
 				<!--part of the navbar that will always be present-->
@@ -105,24 +106,28 @@
 			</div>
 		</nav>
 
-        {% if flash_messages %}
-        <div class="flashmsgs">
-            {% for flash_msg in flash_messages %}
-            <div class="flashmsg-wrapper">
-                <div class="alert alert-{{ flash_msg.type }}">
-                    {% if flash_msg.type != "success" %}
-                        <button type="button" class="close" data-dismiss="alert">&times;</button>
-                    {% endif %}
-                    {{ flash_msg.msg }}
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-        {% endif %}
+	    {% if flash_messages %}
+	    <div class="flashmsgs">
+		{% for flash_msg in flash_messages %}
+		<div class="flashmsg-wrapper">
+		    <div class="alert alert-{{ flash_msg.type }}">
+			{% if flash_msg.type != "success" %}
+			    <button type="button" class="close" data-dismiss="alert">&times;</button>
+			{% endif %}
+			{{ flash_msg.msg }}
+		    </div>
+		</div>
+		{% endfor %}
+	    </div>
+	    {% endif %}
 
-        {% block content %} {% endblock %}
+	    <div class="container">
 
-        {% block footer %} {% endblock %}
+			{% block content %} {% endblock %}
+		
+			{% block footer %} {% endblock %}
+			
+		</div>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="{{ STATIC_URL }}hyperkitty/libs/jquery/jquery-1.10.1.min.js"><\/script>')</script>

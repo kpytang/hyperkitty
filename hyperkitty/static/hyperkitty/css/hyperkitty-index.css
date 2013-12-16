@@ -22,6 +22,7 @@
 .all-lists .side-menu ul {
     list-style-type: none;
     margin-left: 1em;
+    padding-left: 0;
 }
 .all-lists .side-menu li {
     margin: 0.5em 0;
@@ -85,7 +86,7 @@
 /* main content */
 
 .all-lists div.lists {
-    padding-right: 4em;
+    padding-left: 0;
 }
 
 .all-lists table.lists th {
@@ -133,9 +134,9 @@
 .all-lists table.lists .list-address {
     font-size: 90%;
 }
-.all-lists table.lists td.activity {
+/*.all-lists table.lists td.activity {
     width: 260px;
-}
+}*/
 .all-lists table.lists .chart {
     height: 35px;
 }
@@ -143,10 +144,10 @@
     margin: 0 auto;
     padding-top: 5px;
 }
-.all-lists table.lists ul.list-stats {
+/*.all-lists table.lists ul.list-stats {
     margin: 0;
     text-align: center;
-}
+}*/
 .all-lists table.lists ul.list-stats li {
     display: inline;
     font-size: 85%;

@@ -10,9 +10,9 @@
 
 {% block content %}
 
-<div class="row-fluid all-lists">
+<div class="row all-lists">
 
-<div class="span2 side-menu lists-menu">
+<div class="col-md-2 side-menu lists-menu">
     <h2>{% trans 'Lists' %}</h2>
     <ul>
         <li>
@@ -46,7 +46,7 @@
     </ul>
 </div>
 
-<div class="span10 lists">
+<div class="col-md-10 lists">
 
 {% if all_lists|length > 10 %}
 <div class="filter-lists">
@@ -73,7 +73,7 @@
     <label><input type="checkbox" value="private" /> Hide private</label>
 </p>
 
-<table class="lists table">
+<table class="lists table table-condensed">
     <thead>
         <tr>
             <th>{% trans 'List' %}</th>
@@ -93,7 +93,7 @@
             <td>
                 {% ifchanged mlist.name|first %}<a name="{{ mlist.name|first }}" />{% endifchanged %}
                 {% if mlist.is_new %}
-                 <span class="new label">{% trans 'new' %}</span>
+                 <span class="new label label-default">{% trans 'new' %}</span>
                 {% endif %}
                  <a href="{% url 'list_overview' mlist_fqdn=mlist.name %}"
                     class="list-name">
@@ -113,10 +113,10 @@
                     {{ mlist.name }}
                 </span>
             </td>
-            <td class="list-description">
+            <td class="list-description col-md-6">
                 {{ mlist.description|default_if_none:"" }}
             </td>
-            <td class="activity">
+            <td class="activity col-md-4">
                 <div class="chart">
                     <img alt="Loading..." class="ajaxloader" src="{{ STATIC_URL }}hyperkitty/img/ajax-loader.gif" />
                 </div>

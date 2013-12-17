@@ -86,13 +86,7 @@
 	padding-left: 0;
 }
 section#title h2 {
-
-  margin-bottom: 0px;
-}
-
-section#title #description {
-  font-size: 12pt;
-  font-weight: normal;
+  margin: 0;
 }
 
 #highlights svg {
@@ -136,6 +130,9 @@ section#title #description {
 }
 
 /* this needs to be integrated into hyperkitty-threadslist.css eventually */
+#discussions {
+	padding-right: 0;
+}
 #discussions .thread {
 	border: 1px solid #e5e5e5;
 	margin: 0.25em 0;

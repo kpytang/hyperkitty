@@ -42,12 +42,12 @@
 			<p class="duration-text">In the past <strong>30</strong> days:</p>			
 			<ul class="list-unstyled list-stats">
 				<li class="item">
-					<i class="fa fa-user participant"></i> 
-					<span class="info">{{ num_participants }} participants</span>
+					<i class="icomoon participant"></i> 
+					<span class="info">{{ mlist.recent_participants_count }} participants</span>
 				</li>
 				<li class="item">
-					<i class="fa fa-comment discussion"></i>
-					<span class="info">{{ num_threads }} discussions</span>
+					<i class="icomoon discussion"></i>
+					<span class="info">{{ mlist.recent_threads_count }} discussions</span>
 				</li>
 			</ul>
 		</section>
@@ -153,25 +153,8 @@
 {% block additionaljs %}
 
 <script type="text/javascript" >
-/*   
     $(function() {
-        activity_graph(
-            "#fig",
-            ["{{days|join:'","'}}"],
-            {{evolution}},
-            "{{ archives_baseurl }}"
-        )
-    });
-*/
-    
-    $(function() {
-	chart(
-	    "#chart",
-	    ["{{days|join:'","'}}"],
-            {{evolution}},
-            "{{ archives_baseurl }}",
-            "#chart-caption"
-	)
+        ajax_chart("#chart", "{% url 'list_recent_activity' mlist.name %}");
     });
 </script>
 

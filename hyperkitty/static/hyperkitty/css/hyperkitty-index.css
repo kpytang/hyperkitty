@@ -8,7 +8,9 @@
 
 
 /* sides */
-
+.side-menu{
+    padding-top: 3px;
+}
 .all-lists .side-menu h2 {
     font-size: 100%;
     line-height: 100%;
@@ -134,9 +136,6 @@
 .all-lists table.lists .list-address {
     font-size: 90%;
 }
-/*.all-lists table.lists td.activity {
-    width: 260px;
-}*/
 .all-lists table.lists .chart {
     height: 35px;
 }
@@ -144,10 +143,6 @@
     margin: 0 auto;
     padding-top: 5px;
 }
-/*.all-lists table.lists ul.list-stats {
-    margin: 0;
-    text-align: center;
-}*/
 .all-lists table.lists ul.list-stats li {
     display: inline;
     font-size: 85%;

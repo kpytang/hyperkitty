@@ -19,18 +19,18 @@
 			<span class="thread-title">{{ thread.subject|strip_subject:mlist }}</span>
 		</a>
 	</div>
-	<div class="thread-stats col-md-4 pull-right">
+	<div class="thread-stats col-md-3 pull-right">
 		<ul class="list-inline">
-			<li>
-				<i class="fa fa-user participant"></i> 
-				{{ thread.participants|length }}
+			<li class="col-md-3">
+				<i class="icomoon participant"></i> 
+				{{ thread.participants_count }}
 			</li>
-			<li>
-				<i class="fa fa-comment discussion"></i> 
-				{{ thread.length }}
+			<li class="col-md-4">
+				<i class="icomoon discussion"></i> 
+				{{ thread|length }}
 			</li>
-			<li>
-				<i class="likestatus {{ thread.likestatus }}"></i>
+			<li class="col-md-5 pull-right">
+				<i class="icomoon likestatus {{ thread.likestatus }}"></i>
 				<strong>+{{ thread.likes }}/-{{ thread.dislikes }}</strong>
 			</li>
 		</ul>

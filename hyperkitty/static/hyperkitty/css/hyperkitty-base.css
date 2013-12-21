@@ -1,34 +1,54 @@
 body {
 	position: relative;
-	padding-top: 70px;
+	padding-top: 70px;			/* float navbar height, so it doesn't overlay content */
 	background-color: white;
 }
-
-ul.auth {
-    margin-right: -1em;
-}
-.navbar .breadcrumb {
-    padding: 1em 2em 0 0;
-    margin: 0;
-    background-color: transparent;
-}
-.navbar .breadcrumb > li > a {
-    color: #777;
-    text-decoration: none;
-}
-.navbar .breadcrumb > li > a:focus,
-.navbar .breadcrumb > li > a:hover {
-    color: #333;
-    text-decoration: none;
-    background-color: transparent;
-}
-.navbar .breadcrumb>li+li:before {
-	content: ">";
-	color: rgb(153, 153, 153);
+/* full-width container */
+.container-full {
+	margin: 0 auto;
+	width: 100%;
+	padding: 0 15px;
 }
 
 /* Sometimes jQuery UI overwrites the Bootstrap values */
-
 a, .ui-widget-content a {
-  color: #0088cc;
+	color: #0088cc;
+}
+
+/* NAVBAR */
+/* login/logout */
+ul.auth {
+    margin-right: -1em;
+}
+/* name of list archives */
+#archives-name {
+	display: block;
+	font-size: larger;
+	margin-top: 5px;
+	margin-bottom: -20px;
+}
+#archives-name:focus,
+#archives-name:hover {
+	text-decoration: none;
+}
+/* navigational breadcrumbs */
+.breadcrumb {
+	padding: 0 0 0 15px;
+	margin: 0 0 0 -15px;
+    background-color: transparent;
+	font-size: 0.7em;
+	text-transform: uppercase;
+}
+.breadcrumb > li > a {
+    color: #777;
+    text-decoration: none;
+}
+.breadcrumb > li > a:focus,
+.breadcrumb > li > a:hover {
+    color: #333;
+    text-decoration: none;
+}
+.breadcrumb>li+li:before {
+	content: ">";
+	color: rgb(153, 153, 153);
 }

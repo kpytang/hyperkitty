@@ -9,7 +9,7 @@
 			href="{% url 'thread' threadid=thread.thread_id mlist_fqdn=mlist.name %}"
 			>
 			{% if thread.category %}
-			<span class="label category" style="background-color:{{thread.category.color}}">
+			<span class="label label-default category" style="background-color:{{thread.category.color}}">
 				{{ thread.category.name|upper }}
 			</span>
 			{% endif %}

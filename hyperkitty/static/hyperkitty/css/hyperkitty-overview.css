@@ -9,22 +9,21 @@
     font-weight: normal;
 }
 
-#chart-data rect {
+.chart-data rect {
     cursor: pointer;
-}
-#fig, #chart-data {
+}.chart-data {
     position: relative;
     margin: auto;
     font-size: 8pt;
     font-family: "Droid Sans", sans-serf;
     font-color: #777;
 }
-#fig .axis path, #fig .axis line,
-#chart-data .axis path, #chart-data .axis line {
+.axis path, .axis line,
+.chart-data .axis path, .chart-data .axis line {
     display: none;
 }
-#fig .area,
-#chart-data .bars rect {
+.area,
+.chart-data .bars rect {
     fill: steelBlue;
 }
 
@@ -43,7 +42,7 @@ section#title h2 {
 #statistics {
     color: #555;
 }
-#statistics #chart-caption {
+#statistics .chart-caption {
     font-size: x-small;
     margin-top: -0.25em;
 }
@@ -69,6 +68,7 @@ section#title h2 {
 }
 .maker-id {
     color: #aaa;
+    font-weight: bold;
 }
 
 #most-active h3 {
@@ -90,10 +90,10 @@ section#title h2 {
     text-overflow: ellipsis;
     padding: 0.5em;
 }
-.thread-stats {
+#overview .thread-stats {
     padding: 0.5em 0;
 }
-.thread-stats ul {
+#overview .thread-stats ul {
     text-align: right;
     margin: 0.2em 0 0;
     line-height: 1em;

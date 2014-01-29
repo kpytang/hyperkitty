@@ -113,18 +113,18 @@ function setup_attachments(baseElem) {
 function chart(elem_id, data, default_props) {
     /* Function for grid lines, for x-axis */
     function make_x_axis() {
-	return d3.svg.axis()
-	    .scale(x)
-	    .orient("bottom")
-	    .ticks(d3.time.days, 1)
+    return d3.svg.axis()
+        .scale(x)
+        .orient("bottom")
+        .ticks(d3.time.days, 1)
     }
 
     /* Function for grid lines, for y-axis */
     function make_y_axis() {
-	return d3.svg.axis()
-	    .scale(y)
-	    .orient("left")
-	    .ticks(5)
+    return d3.svg.axis()
+        .scale(y)
+        .orient("left")
+        .ticks(5)
     }
     if (typeof default_props === "undefined") {
         default_props = {};
@@ -152,14 +152,14 @@ function chart(elem_id, data, default_props) {
     var xAxis = d3.svg.axis()
         .scale(x)
         .orient("bottom")
-	.tickSize(0,0) // change to 2,2 for ticks
+    .tickSize(0,0) // change to 2,2 for ticks
         .tickFormat(format_out)
         .ticks(d3.time.days, 1);
 
     var yAxis = d3.svg.axis()
         .scale(y)
         .orient("left")
-	.tickSize(0,0) // change to 4,3 for ticks
+    .tickSize(0,0) // change to 4,3 for ticks
         .ticks("") // change to 2 for y-axis tick labels
         .tickSubdivide(1);
 
@@ -169,10 +169,10 @@ function chart(elem_id, data, default_props) {
         .y(function(d) { return y(d.count); });
 
     var svg = d3.select(elem_id).append("svg")
-	.attr("class", "chart-data")
+    .attr("class", "chart-data")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
-      .append("g")
+        .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
     data.forEach(function(d) {
@@ -186,29 +186,29 @@ function chart(elem_id, data, default_props) {
 
     /* Draw the grid lines, for x-axis */
     svg.append("g")
-	.attr("class", "grid")
-	.attr("Transform", "translate(0, " + height + ")")
-	.call(make_x_axis()
-	    .tickSize(height, 0, 0)
-	    .tickFormat("")
-	)
+    .attr("class", "grid")
+    .attr("Transform", "translate(0, " + height + ")")
+    .call(make_x_axis()
+        .tickSize(height, 0, 0)
+        .tickFormat("")
+    )
 
     /* Draw the grid lines, for y-axis */
     svg.append("g")
-	.attr("class", "grid")
-	.call(make_y_axis()
-	    .tickSize(-width, 0, 0)
-	    .tickFormat("")
-	)
+    .attr("class", "grid")
+    .call(make_y_axis()
+        .tickSize(-width, 0, 0)
+        .tickFormat("")
+    )
 
     svg.append("g").attr("class", "bars").selectAll("rect")
-	    .data(data)
-	.enter().append("rect")
-	    .attr("x", function(d) { return x(d.date); })
-	    //.attr("y0", height)
-	    .attr("y", function(d) { return y(d.count); })
-	    .attr("width", w)
-	    .attr("height", function(d) { return height - y(d.count); });
+        .data(data)
+    .enter().append("rect")
+        .attr("x", function(d) { return x(d.date); })
+        //.attr("y0", height)
+        .attr("y", function(d) { return y(d.count); })
+        .attr("width", w)
+        .attr("height", function(d) { return height - y(d.count); });
 
     /* draw x-axis */
     svg.append("g")
@@ -283,7 +283,6 @@ function setup_flash_messages() {
 
 $(document).ready(function() {
     setup_vote();
-    //~ setup_months_list();
     setup_disabled_tooltips();
     setup_flash_messages();
     setup_attachments();

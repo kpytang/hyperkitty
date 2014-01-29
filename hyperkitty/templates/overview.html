@@ -38,8 +38,8 @@
         
         <section id="statistics" class="row">
             <h3>Activity Summary</h3>
-            <div id="chart">
-                <p id="chart-caption" class="text-muted">Post volume over the past <strong>30</strong> days.</p>            
+            <div class="chart">
+                <p class="chart-caption" class="text-muted">Post volume over the past <strong>30</strong> days.</p>            
             </div>
             <p class="duration-text">In the past <strong>30</strong> days:</p>
             <ul class="list-unstyled list-stats">
@@ -59,7 +59,7 @@
             {% for poster in top_posters %}
             <div class="maker row">
                 <div class="col-md-1">
-                    <small class="maker-id"><strong>#{{forloop.counter}}</strong></small>
+                    <small class="maker-id">#{{forloop.counter}}</small>
                 </div>
                 <div class="col-md-2 gravatar">
                     {% gravatar poster.email 40 %}
@@ -156,7 +156,7 @@
 
 <script type="text/javascript" >
     $(function() {
-        ajax_chart("#chart", "{% url 'list_recent_activity' mlist.name %}");
+        ajax_chart(".chart", "{% url 'list_recent_activity' mlist.name %}");
     });
 </script>
 

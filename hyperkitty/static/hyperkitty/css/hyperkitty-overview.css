@@ -3,21 +3,21 @@
 #overview h3 {
     line-height: 1.5em;
     margin-top: 3em;
-	color: #999;
-	text-transform: uppercase;
-	font-size: small;
-	font-weight: normal;
+    color: #999;
+    text-transform: uppercase;
+    font-size: small;
+    font-weight: normal;
 }
 
 #chart-data rect {
     cursor: pointer;
 }
 #fig, #chart-data {
-	position: relative;
-	margin: auto;
-	font-size: 8pt;
-	font-family: "Droid Sans", sans-serf;
-	font-color: #777;
+    position: relative;
+    margin: auto;
+    font-size: 8pt;
+    font-family: "Droid Sans", sans-serf;
+    font-color: #777;
 }
 #fig .axis path, #fig .axis line,
 #chart-data .axis path, #chart-data .axis line {
@@ -83,35 +83,35 @@
 */
 
 #highlights {
-	padding-left: 0;
+    padding-left: 0;
 }
 section#title h2 {
   margin: 0;
 }
 
 #highlights svg {
-	padding-top: 3px;
-	border: 1px solid #bbb;
+    padding-top: 3px;
+    border: 1px solid #bbb;
 }
 
 #statistics {
-	color: #555;
+    color: #555;
 }
 #statistics #chart-caption {
-	font-size: x-small;
-	margin-top: -0.25em;
+    font-size: x-small;
+    margin-top: -0.25em;
 }
 #statistics .duration-text {
-	margin-bottom: 0.25em;
+    margin-bottom: 0.25em;
 }
 #statistics .list-stats .item {
-	display: table-row;
+    display: table-row;
 }
 #statistics .list-stats .item > * {
-	display: table-cell;
+    display: table-cell;
 }
 #statistics .list-stats i {
-	padding-right: 0.25em;
+    padding-right: 0.25em;
 }
 
 .maker {
@@ -119,38 +119,38 @@ section#title h2 {
     padding-bottom: 1.43em;
 }
 .maker-details {
-	margin-left: 0.5em;
+    margin-left: 0.5em;
 }
 .maker-id {
   color: #aaa;
 }
 
 #most-active h3 {
-	margin-top: 0;
+    margin-top: 0;
 }
 
 /* this needs to be integrated into hyperkitty-threadslist.css eventually */
 #discussions {
-	padding-right: 0;
+    padding-right: 0;
 }
 #discussions .thread {
-	border: 1px solid #e5e5e5;
-	margin: 0.25em 0;
-	min-height: 1.2em;
+    border: 1px solid #e5e5e5;
+    margin: 0.25em 0;
+    min-height: 1.2em;
 }
-.thread-title-info {
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	padding: 0.5em;
+#overview .thread-title-info {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0.5em;
 }
 .thread-stats {
     padding: 0.5em 0;
 }
 .thread-stats ul {
-	text-align: right;
-	margin: 0.2em 0 0;
-	line-height: 1em;
+    text-align: right;
+    margin: 0.2em 0 0;
+    line-height: 1em;
 }
 
 #overview .category {

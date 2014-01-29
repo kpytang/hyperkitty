@@ -18,9 +18,9 @@
                 </span>
             </div>
             <div class="thread-content">
-                <div class="gravatar">
-                    {% if thread.starting_email.sender_email %}
-                    {% gravatar thread.starting_email.sender_email 40 %}
+                <div class="col-md-2 gravatar">
+                        {% if thread.starting_email.sender_email %}
+                        {% gravatar thread.starting_email.sender_email 40 %}
                     <br />
                     {% endif %}
                     {{ thread.starting_email.sender_name|escapeemail }}
@@ -47,10 +47,16 @@
                     </ul>
                     {% endif %}
                 </div>
-                <span class="participant">{{ thread.participants_count }} participants</span>
-                <span class="discussion">{{ thread|length }} comments</span>
+                
+                <span class="stats"><i class="icomoon participant"></i>
+                    {{thread.participants_count}} participants
+                </span>
+                <span class="stats"><i class="icomoon participant"></i> 
+                    {{ thread|length }} comments
+                </span>
+               
                 {% include "messages/like_form.html" with message_id_hash=thread.starting_email.message_id_hash object=thread %}
                 <a href="{% url 'thread' threadid=thread.thread_id mlist_fqdn=mlist.name %}"
-                   class="btn thread-show">Show discussion</a>
+                   class="btn btn-default thread-show">Show discussion</a>
             </div>
         </div>

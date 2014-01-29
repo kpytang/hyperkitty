@@ -24,8 +24,6 @@
  */
 
 .thread-header {
-    /*background-color: #f6f6f6;*/
-    /*border-bottom: 1px solid #b3b3b3;*/
     margin-bottom: 6em;
     padding: 0;
 }
@@ -240,7 +238,7 @@
 .replies .email {
     border-top: 1px solid rgb(179, 179, 179);
     padding: 1em;
-	margin: 20px 0px 20px 0px;
+    margin: 20px 0px 20px 0px;
 }
 .even .email {
     background-color: rgb(246, 246, 246);

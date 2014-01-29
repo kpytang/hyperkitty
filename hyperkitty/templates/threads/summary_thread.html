@@ -3,36 +3,36 @@
 {% load storm %}
 
 <article class="thread row">
-	<div class="thread-title-info thread-title col-md-8 pull-left">
-		{% if counter %}<strong><span class="thread-id">#{{counter}}</span></strong>{% endif %}
-		<a name="{{thread.thread_id}}"
-			href="{% url 'thread' threadid=thread.thread_id mlist_fqdn=mlist.name %}"
-			>
-			{% if thread.category %}
-			<span class="label label-default category" style="background-color:{{thread.category.color}}">
-				{{ thread.category.name|upper }}
-			</span>
-			{% endif %}
-			{% if thread.unread %}
-			<i class="fa fa-envelope" title="New messages in this thread"></i>
-			{% endif %}
-			<span class="thread-title">{{ thread.subject|strip_subject:mlist }}</span>
-		</a>
-	</div>
-	<div class="thread-stats col-md-3 pull-right">
-		<ul class="list-inline">
-			<li class="col-md-3">
-				<i class="icomoon participant"></i> 
-				{{ thread.participants_count }}
-			</li>
-			<li class="col-md-4">
-				<i class="icomoon discussion"></i> 
-				{{ thread|length }}
-			</li>
-			<li class="col-md-5 pull-right">
-				<i class="icomoon likestatus {{ thread.likestatus }}"></i>
-				<strong>+{{ thread.likes }}/-{{ thread.dislikes }}</strong>
-			</li>
-		</ul>
-	</div>
+    <div class="thread-title-info thread-title col-md-8 pull-left">
+        {% if counter %}<strong><span class="thread-id">#{{counter}}</span></strong>{% endif %}
+        <a name="{{thread.thread_id}}"
+            href="{% url 'thread' threadid=thread.thread_id mlist_fqdn=mlist.name %}"
+            >
+            {% if thread.category %}
+            <span class="label label-default category" style="background-color:{{thread.category.color}}">
+                {{ thread.category.name|upper }}
+            </span>
+            {% endif %}
+            {% if thread.unread %}
+            <i class="fa fa-envelope" title="New messages in this thread"></i>
+            {% endif %}
+            <span class="thread-title">{{ thread.subject|strip_subject:mlist }}</span>
+        </a>
+    </div>
+    <div class="thread-stats col-md-3 pull-right">
+        <ul class="list-inline">
+            <li class="col-md-3">
+                <i class="icomoon participant"></i> 
+                {{ thread.participants_count }}
+            </li>
+            <li class="col-md-4">
+                <i class="icomoon discussion"></i> 
+                {{ thread|length }}
+            </li>
+            <li class="col-md-5 pull-right">
+                <i class="icomoon likestatus {{ thread.likestatus }}"></i>
+                <strong>+{{ thread.likes }}/-{{ thread.dislikes }}</strong>
+            </li>
+        </ul>
+    </div>
 </article>

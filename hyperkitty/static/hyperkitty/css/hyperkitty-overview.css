@@ -21,72 +21,18 @@
 }
 #fig .axis path, #fig .axis line,
 #chart-data .axis path, #chart-data .axis line {
-/*
-  fill: none;
-  stroke: #bbb;
-  shape-rendering: geometricPrecision;
-*/
-  display: none;
+    display: none;
 }
 #fig .area,
 #chart-data .bars rect {
-  fill: steelBlue;
+    fill: steelBlue;
 }
-
-/* Next 2 blocks for grid lines */
-/*
-#fig .grid .tick,
-#chart-data .grid .tick {
-    stroke: lightgrey;
-    opacity: 0.3;
-}
-
-#fig .grid path,
-#chart-data .grid path {
-    stroke-width: 0;
-}
-*/
-/*
-#overview .widget {
-    padding: 1em;
-    border: 1px solid #ddd;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    margin: 1em 0;
-}
-*/
-/*
-.category {
-    font-variant: small-caps;
-    font-weight: bold;
-    color: white;
-    -webkit-border-radius: 5px 5px 5px 5px;
-    -moz-border-radius: 5px 5px 5px 5px;
-    border-radius: 5px 5px 5px 5px;
-    vertical-align: top;
-    margin-bottom: 10px;
-    padding-top: 0px;
-    padding-left: 10px;
-}
-
-.category_entry {
-    list-style-type: circle;
-    margin-top: 0px;
-    padding-bottom: 10px;
-    padding-left: 25px;
-}
-
-.category_entry li {
-    padding-bottom: 10px;
-}
-*/
 
 #highlights {
     padding-left: 0;
 }
 section#title h2 {
-  margin: 0;
+    margin: 0;
 }
 
 #highlights svg {
@@ -122,7 +68,7 @@ section#title h2 {
     margin-left: 0.5em;
 }
 .maker-id {
-  color: #aaa;
+    color: #aaa;
 }
 
 #most-active h3 {

@@ -28,6 +28,12 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+h1 {
+    margin-top: 0;
+    font-size: 2em; /* override bootstrap's default */
+    margin-bottom: 0.5em;
+}
+
 .right {
     text-align: right;
 }
@@ -43,16 +49,16 @@
 
 /* from Bootstrap's alert class */
 .errorlist {
-  list-style-type: none;
-  margin: 0 0 20px 0;
-  padding: 8px 35px 8px 14px;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-  border: 1px solid #eed3d7;
-  -webkit-border-radius: 4px;
-     -moz-border-radius: 4px;
-          border-radius: 4px;
-  color: #b94a48;
-  background-color: #f2dede;
+    list-style-type: none;
+    margin: 0 0 20px 0;
+    padding: 8px 35px 8px 14px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    border: 1px solid #eed3d7;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    color: #b94a48;
+    background-color: #f2dede;
 }
 
 /* Flash messages */
@@ -136,21 +142,18 @@ form.likeform {
     padding: 0;
 }
 .neutral:before {
-    /*background: url("../img/neutral.png") no-repeat scroll left;*/
     content: "\e600";
     font-size: 18px;
     line-height: 1em;
     vertical-align: middle;
 }
 .like:before {
-    /*background: url("../img/like.png") no-repeat scroll left;*/
     content: '\e602';
     font-size: 18px;
     line-height: 1em;
     vertical-align: middle;
 }
 .likealot:before {
-    /*background: url("../img/likealot.png") no-repeat scroll left;*/
     content: '\e601';
     font-size: 18px;
     line-height: 1em;
@@ -169,14 +172,13 @@ form.likeform {
     background: url("../img/youdislike.png") no-repeat scroll left;
 }
 .youlike.disabled {
-  background: url("../img/youlike-disabled.png") no-repeat scroll left;
-  color: #999;
+    background: url("../img/youlike-disabled.png") no-repeat scroll left;
+    color: #999;
 }
 .youdislike.disabled {
-  background: url("../img/youdislike-disabled.png") no-repeat scroll left;
-  color: #999;
+    background: url("../img/youdislike-disabled.png") no-repeat scroll left;
+    color: #999;
 }
-
 
 
 /* Months list */
@@ -189,7 +191,6 @@ form.likeform {
 #months-list li.current {
     font-weight: bold;
 }
-
 
 
 /*
@@ -227,7 +228,6 @@ a.attachments {
     list-style-position: inside;
     padding-left: 0.5em;
 }
-
 
 
 /*
@@ -284,7 +284,6 @@ a.reply.disabled {
 }
 
 
-
 /*
  * New thread
  */
@@ -333,9 +332,8 @@ a.thread-new strong {
 
 
 /*
- * Categories
+ * CATEGORIES
  */
-
 .thread-category {
     padding: 0;
 }
@@ -358,14 +356,6 @@ a.thread-new strong {
     display: none; /* Displayed manually */
 }
 
-h1 {
-    margin-top: 0;
-    font-size: 2em; /* override bootstrap */
-    /*line-height: 32px;*/
-    margin-bottom: 0.5em;
-}
-
-
 
 /*
  * Activity chart
@@ -380,28 +370,9 @@ h1 {
 }
 
 .chart-data .axis path, .chart-data .axis line {
-/*
-    fill: none;
-    stroke: #bbb;
-    shape-rendering: geometricPrecision;
-*/
     display: none;
 }
 
 .chart-data .bars rect {
     fill: steelBlue;
 }
-
-
-/* Next 2 blocks for grid lines */
-
-/*
-.chart-data .grid .tick {
-    stroke: lightgrey;
-    opacity: 0.3;
-}
-
-.chart-data .grid path {
-    stroke-width: 0;
-}
-*/

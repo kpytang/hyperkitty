@@ -18,7 +18,7 @@
     text-align: center;
 }
 #login .social-login li {
-	margin: 0 20px;
+    margin: 0 20px;
 }
 #login .social-login li.browserid {
     display: block;
@@ -56,7 +56,6 @@
 }
 
 .user-profile div.gravatar {
-    /*float: right;*/
     float: left;
     width: auto;
     font-size: 95%;

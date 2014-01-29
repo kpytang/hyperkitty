@@ -1,18 +1,18 @@
 body {
-	position: relative;
-	padding-top: 70px;			/* float navbar height, so it doesn't overlay content */
-	background-color: white;
+    position: relative;
+    padding-top: 70px;            /* float navbar height, so it doesn't overlay content */
+    background-color: white;
 }
 /* full-width container */
 .container-full {
-	margin: 0 auto;
-	width: 100%;
-	padding: 0 15px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 15px;
 }
 
 /* Sometimes jQuery UI overwrites the Bootstrap values */
 a, .ui-widget-content a {
-	color: #0088cc;
+    color: #0088cc;
 }
 
 /* NAVBAR */
@@ -22,22 +22,22 @@ ul.auth {
 }
 /* name of list archives */
 #archives-name {
-	display: block;
-	font-size: larger;
-	margin-top: 5px;
-	margin-bottom: -20px;
+    display: block;
+    font-size: larger;
+    margin-top: 5px;
+    margin-bottom: -20px;
 }
 #archives-name:focus,
 #archives-name:hover {
-	text-decoration: none;
+    text-decoration: none;
 }
 /* navigational breadcrumbs */
 .breadcrumb {
-	padding: 0 0 0 15px;
-	margin: 0 0 0 -15px;
+    padding: 0 0 0 15px;
+    margin: 0 0 0 -15px;
     background-color: transparent;
-	font-size: 0.7em;
-	text-transform: uppercase;
+    font-size: 0.7em;
+    text-transform: uppercase;
 }
 .breadcrumb > li > a {
     color: #777;
@@ -49,6 +49,6 @@ ul.auth {
     text-decoration: none;
 }
 .breadcrumb>li+li:before {
-	content: ">";
-	color: rgb(153, 153, 153);
+    content: ">";
+    color: rgb(153, 153, 153);
 }

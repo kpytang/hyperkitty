@@ -3,41 +3,30 @@
  */
 
 /* embedding font for font icons */
-/*@font-face {
-	font-family: 'fontello';
-	src: url('../fonts/fontello.eot?31744505');
-	src: url('../fonts/fontello.eot?31744505#iefix') format('embedded-opentype'),
-	   url('../fonts/fontello.woff?31744505') format('woff'),
-	   url('../fonts/fontello.ttf?31744505') format('truetype'),
-	   url('../fonts/fontello.svg?31744505#fontello') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}*/
 @font-face {
-	font-family: 'icomoon';
-	src:url('../fonts/icomoon.eot');
-	src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
-		url('../fonts/icomoon.ttf') format('truetype'),
-		url('../fonts/icomoon.woff') format('woff'),
-		url('../fonts/icomoon.svg#icomoon') format('svg');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'icomoon';
+    src:url('../libs/icomoon/fonts/icomoon.eot');
+    src:url('../libs/icomoon/fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+        url('../libs/icomoon/fonts/icomoon.ttf') format('truetype'),
+        url('../libs/icomoon/fonts/icomoon.woff') format('woff'),
+        url('../libs/icomoon/fonts/icomoon.svg#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 .icomoon {
-	font-family: 'icomoon';
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
+    font-family: 'icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
 
-	/* Better Font Rendering =========== */
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+    /* Better Font Rendering */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
-
 
 .right {
     text-align: right;
@@ -103,14 +92,9 @@ form .buttons .submit {
 
 /* Gravatar */
 .gravatar {
-/*
     vertical-align: top;
     width:40px;
     font-size: 70%;
-*/
-}
-.gravatar img {
-    width: 40px;
 }
 
 
@@ -121,21 +105,24 @@ ul.list-stats {
     padding: 0;
 }
 .participant:before {
-	content: "\e609";
-	color: #BFBFBF;
-	font-size: 1.14em;
+    content: "\e609";
+    color: #BFBFBF;
+    font-size: 1.14em;
     line-height: 1em;
     vertical-align: middle;
 }
 .discussion:before {
-	content: "\e607";
-	color: #BFBFBF;
-	font-size: 1.14em;
+    content: "\e607";
+    color: #BFBFBF;
+    font-size: 1.14em;
     line-height: 1em;
     vertical-align: middle;
 }
 i.unread {
     vertical-align: baseline;
+}
+.thread {
+    margin: 2em 0;
 }
 
 
@@ -149,23 +136,23 @@ form.likeform {
     padding: 0;
 }
 .neutral:before {
-	/*background: url("../img/neutral.png") no-repeat scroll left;*/
-	content: "\e600";
-	font-size: 18px;
-	line-height: 1em;
+    /*background: url("../img/neutral.png") no-repeat scroll left;*/
+    content: "\e600";
+    font-size: 18px;
+    line-height: 1em;
     vertical-align: middle;
 }
 .like:before {
     /*background: url("../img/like.png") no-repeat scroll left;*/
     content: '\e602';
-	font-size: 18px;
+    font-size: 18px;
     line-height: 1em;
     vertical-align: middle;
 }
 .likealot:before {
     /*background: url("../img/likealot.png") no-repeat scroll left;*/
-	content: '\e601';
-	font-size: 18px;
+    content: '\e601';
+    font-size: 18px;
     line-height: 1em;
     vertical-align: middle;
 }
@@ -194,7 +181,7 @@ form.likeform {
 
 /* Months list */
 #months-list {
-	padding-left: 0;
+    padding-left: 0;
 }
 #months-list h3 {
     font-size: 120%;

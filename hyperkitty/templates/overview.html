@@ -13,85 +13,87 @@
 
 {% block content %}
 
+<div class="row">
+    
 {% include 'threads/month_list.html' %}
 
     <div id="overview" class="col-md-10">
-	
-	<div id="highlights" class="col-md-3">
-	    <section id="title" class="row">
-			<h2>
+    
+    <div id="highlights" class="col-md-3">
+        <section id="title" class="row">
+            <h2>
             {% if mlist.display_name %}
                 {{ mlist.display_name }}
             {% else %}
                 {{ mlist.name|until:"@" }}
             {% endif %}
             </h2>
-			<small><p id="description">{{ mlist.description|default_if_none:"" }}</p></small>
-	    </section>
-		<div class="thread-new row">
-			<a href="{% url "message_new" mlist_fqdn=mlist.name %}"
-			class="btn btn-default{% if not user.is_authenticated %} disabled" title="You must be logged-in to create a thread.{% endif %}">
-			<i class="fa fa-plus"></i> Start a new thread</a>
-		</div>
-		
-	    <section id="statistics" class="row">
-			<h3>Activity Summary</h3>
-			<div id="chart">
-				<p id="chart-caption" class="text-muted">Post volume over the past <strong>30</strong> days.</p>			
-			</div>
-			<p class="duration-text">In the past <strong>30</strong> days:</p>			
-			<ul class="list-unstyled list-stats">
-				<li class="item">
-					<i class="icomoon participant"></i> 
-					<span class="info">{{ mlist.recent_participants_count }} participants</span>
-				</li>
-				<li class="item">
-					<i class="icomoon discussion"></i>
-					<span class="info">{{ mlist.recent_threads_count }} discussions</span>
-				</li>
-			</ul>
-		</section>
+            <small><p id="description">{{ mlist.description|default_if_none:"" }}</p></small>
+        </section>
+        <div class="thread-new row">
+            <a href="{% url "message_new" mlist_fqdn=mlist.name %}"
+            class="btn btn-default{% if not user.is_authenticated %} disabled" title="You must be logged-in to create a thread.{% endif %}">
+            <i class="fa fa-plus"></i> Start a new thread</a>
+        </div>
+        
+        <section id="statistics" class="row">
+            <h3>Activity Summary</h3>
+            <div id="chart">
+                <p id="chart-caption" class="text-muted">Post volume over the past <strong>30</strong> days.</p>            
+            </div>
+            <p class="duration-text">In the past <strong>30</strong> days:</p>
+            <ul class="list-unstyled list-stats">
+                <li class="item">
+                    <i class="icomoon participant"></i>
+                    <span class="info">{{ mlist.recent_participants_count }} participants</span>
+                </li>
+                <li class="item">
+                    <i class="icomoon discussion"></i>
+                    <span class="info">{{ mlist.recent_threads_count }} discussions</span>
+                </li>
+            </ul>
+        </section>
 
-		<section id="discussion-maker" class="row">
-			<h3>Most active posters</h3>
-			{% for poster in top_posters %}
-			<div class="maker row">
-				<div class="col-md-1">
-					<small class="maker-id"><strong>#{{forloop.counter}}</strong></small>
-				</div>
-				<div class="gravatar col-md-2">
-					{% gravatar poster.email 40 %}
-				</div>
-				<div class="maker-details col-md-8">
-					<small class="maker-name"><strong>{{ poster.name }}</strong></small>
-					<br/>
-					<strong>{{ poster.count }}</strong> posts
-				</div>
-			</div>
-			{% endfor %}
-		</section>
+        <section id="discussion-maker" class="row">
+            <h3>Most active posters</h3>
+            {% for poster in top_posters %}
+            <div class="maker row">
+                <div class="col-md-1">
+                    <small class="maker-id"><strong>#{{forloop.counter}}</strong></small>
+                </div>
+                <div class="col-md-2 gravatar">
+                    {% gravatar poster.email 40 %}
+                </div>
+                <div class="maker-details col-md-8">
+                    <small class="maker-name"><strong>{{ poster.name }}</strong></small>
+                    <br/>
+                    <strong>{{ poster.count }}</strong> posts
+                </div>
+            </div>
+            {% endfor %}
+        </section>
 
-		<!--  <div id="fig"></div> -->
-	</div>
+        <!--  <div id="fig"></div> -->
+    </div>
 
-	<div id="discussions" class="col-md-9 pull-right">
-		<section id="most-active">
-		    <h3>Recently active discussions</h3>
-		    {% for thread in most_active_threads %}
-			{% include "threads/summary_thread.html"  %} <!-- cut - with counter=forloop.counter -->
-		    {% endfor %}
-		</section>
+    <div id="discussions" class="col-md-9 pull-right">
+        <section id="most-active">
+            <h3>Recently active discussions</h3>
+            {% for thread in most_active_threads %}
+            {% include "threads/summary_thread.html"  %} <!-- cut - with counter=forloop.counter -->
+            {% endfor %}
+        </section>
 
-		<section id="popular-threads">
-		    <h3>Most popular discussions</h3>
-		    {% for thread in pop_threads %}
-			{% include "threads/summary_thread.html" with counter=forloop.counter %}
-		    {% empty %}
-			<p>No vote has been cast this month (yet).</p>
-		    {% endfor %}
-		</section>
+        <section id="popular-threads">
+            <h3>Most popular discussions</h3>
+            {% for thread in pop_threads %}
+            {% include "threads/summary_thread.html" with counter=forloop.counter %}
+            {% empty %}
+            <p>No vote has been cast this month (yet).</p>
+            {% endfor %}
+        </section>
 
-		<section id="top-discussion">
+        <section id="top-discussion">
                 <h3>Most active discussions</h3>
                 {% for thread in top_threads %}
                     {% include "threads/summary_thread.html" with counter=forloop.counter %}
@@ -143,7 +145,7 @@
             </section>
             {% endif %}
 
-	</div>
+    </div>
 
     </div>
 

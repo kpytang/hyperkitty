@@ -17,7 +17,6 @@
     margin-right: 2em;
 }
 #thread-list .thread-list-header .thread-list-info li.list-address {
-    font-size: 120%;
     margin-right: 4em;
 }
 
@@ -40,12 +39,12 @@
  */
 
 .thread-title {
-	font-weight: bold;
+    font-weight: bold;
     color: #0088cc;
 }
 
 .thread-id {
-	font-size: 125%;
+    font-size: 125%;
     color: rgb(102, 102, 102);
     vertical-align: top;
     padding-right: 0.3em;
@@ -65,14 +64,13 @@
 }
 
 .thread .thread-category {
-    /*margin-left: 1em;*/
     float: left;
 }
 
 .thread-title .category {
-  width: 15%;
-  text-align: center;
-  margin-right: 1%;
+    width: 15%;
+    text-align: center;
+    margin-right: 1%;
 }
 
 .thread-info .tags {
@@ -92,11 +90,16 @@
     margin-left: 2em;
 }
 
+.thread-info span.stats {
+    margin-right: .5em;
+}
+
 .thread-content {
     margin-top: 0.5em;
 }
 .thread-content .gravatar {
     float: left;
+    padding-left: 0;
 }
 .thread-content .gravatar a {
     color: black;
@@ -106,6 +109,8 @@
     margin-left: 60px;
     margin-bottom: 5px;
 }
+
+
 
 /* Part containing the body of the mail which can be shown/hidden */
 .expander {

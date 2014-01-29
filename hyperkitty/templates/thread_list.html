@@ -14,25 +14,32 @@
 
 {% include 'threads/month_list.html' %}
 
-    <div id="thread-list" class="col-md-8">
+    <div id="thread-list" class="col-md-10">
 
-        <div class="thread-list-header page-header">
+        <div class="thread-list-header">
             <a href="{% url "message_new" mlist_fqdn=mlist.name %}"
-               class="thread-new btn{% if not user.is_authenticated %} disabled" title="You must be logged-in to create a thread.{% endif %}"
-               ><strong>+</strong> Start a new thread</a>
-            <h1>{{ mlist.display_name|default:mlist.name|escapeemail }}
+               class="thread-new btn btn-default{% if not user.is_authenticated %} disabled" title="You must be logged-in to create a thread.{% endif %}">
+                <i class="fa fa-plus"></i> Start a new thread</a>
+            <h1>
+                {% if mlist.display_name %}
+                    {{ mlist.display_name }}
+                {% else %}
+                    {{ mlist.name|until:"@" }}
+                {% endif %}
                 <small>{{ list_title }}</small>
             </h1>
-            <ul class="thread-list-info">
-                {% if mlist.display_name %}
-                <li class="list-address">
+            <ul class="list-unstyled thread-list-info">
+                {% if mlist.name %}
+                <li class="item list-address">
                     {{ mlist.name|escapeemail }}
                 </li>
                 {% endif %}
-                <li class="participant">
+                <li class="item">
+                    <i class="icomoon participant"></i>
                     {{ participants }} participants
                 </li>
-                <li class="discussion">
+                <li class="item">
+                    <i class="icomoon discussion"></i>
                     {{ threads.paginator.count }} discussions
                 </li>
             </ul>
@@ -43,9 +50,9 @@
         {% empty %}
             <p>Sorry no email threads could be found {{ no_results_text }}.</p>
         {% endfor %}
-
-        {% include "paginator.html" with pager=threads %}
-
+    
+    {% include "paginator.html" with pager=threads %}
+    
     </div>
 
 </div>

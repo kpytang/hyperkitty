@@ -1,0 +1,390 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="ROBOTS" content="INDEX, FOLLOW" />
+        <title>
+        List Archives - User Profile
+        </title>
+        <meta name="author" content="" />
+        <meta name="dc.language" content="en" />
+        <link rel="shortcut icon" href="../static/hyperkitty/img/favicon.ico" />
+        <link rel="stylesheet" media="all" href="../static/hyperkitty/libs/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../static/hyperkitty/libs/font-awesome/css/font-awesome.min.css">
+        
+        <link rel="stylesheet" media="all" href="../static/hyperkitty/css/hyperkitty-base.css" />
+        
+        <link rel="stylesheet" media="all" href="../static/hyperkitty/css/hyperkitty-common.css" />
+        
+        <link rel="stylesheet" media="all" href="../static/hyperkitty/css/hyperkitty-index.css" />
+        
+        <link rel="stylesheet" media="all" href="../static/hyperkitty/css/hyperkitty-user.css" />
+        
+        <link rel="stylesheet" media="all" href="../static/hyperkitty/css/hyperkitty-overview.css" />
+        
+        <link rel="stylesheet" media="all" href="../static/hyperkitty/css/hyperkitty-threadslist.css" />
+        
+        <link rel="stylesheet" media="all" href="../static/hyperkitty/css/hyperkitty-message.css" />
+        
+        <link rel="stylesheet" media="all" href="../static/hyperkitty/css/hyperkitty-categories.css" />
+    </head>
+
+    <body>
+
+    <div class="container-full">
+        <nav class="navbar navbar-fixed-top navbar-default">
+            <div class="container">
+                <!--part of the navbar that will always be present-->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button> 
+                    <a class="navbar-brand" id="archives-name" href="/">List Archives</a>
+                </div>
+                <!--part of the navbar that will be collapsed on small screens-->
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav nav-pills">
+                        <li><a href="#">Lists</a></li>
+                        <li><a href="#">Categories</a></li>
+                        <li><a href="#">Tags</a></li>
+                        <li class="active"><a href="#">Users</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right auth">
+                        <li><a class="mm_logout" href="/accounts/logout/?next=/">Logout</a></li>
+                        <li><a class="right" href="/accounts/profile/">email@address.com</a></li>
+                    </ul>
+                    <form name="search" method="get" action="/search" class="navbar-form navbar-right" role="search">
+                        <input type="hidden" name="list" value="cloud@lists.fedoraproject.org" />
+                        <div class="form-group">
+                            <input name="query" type="text" class="form-control" placeholder="Search this list"/>
+                        </div>
+                        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row">
+                <ol class="breadcrumb">
+                    <li><a href="/"> All Users </a></li>
+                    <li>Ricky Elrod</li>
+                    <li class="active"><a href="/"> Profile </a></li>
+                </ol>
+            </div>
+
+            <div class="row" id="user-details">
+
+                <div id="left-column" class="col-md-3">
+                    <section id="profile" class="row">
+                        <h2> Ricky Elrod</h2>
+                        <span class="block" id="nickname">codeblock</span>
+                        <img class="gravatar" src="https://0.gravatar.com/avatar/ef2c53d5954f57ae231c6b92ca323330?d=https%3A%2F%2Fidenticons.github.com%2F2ddf61febb5ca292e2da638ac260b10e.png&r=x&s=440">
+                        <a href="#" class="btn btn-default block follow">
+                            <i class="fa fa-minus"></i> unfollow this user
+                        </a>
+                        <ul class="list-unstyled list-stats">
+                            <li>
+                                <i class="fa fa-map-marker"></i>
+                                <span class="highlight">United States</span>
+                            </li>
+                            <li>
+                                <i class="fa fa-globe"></i>
+                                Unknown timezone
+                            </li>
+                            <li>
+                                <i class="fa fa-envelope"></i>
+                                <a href="mailto:codeblock@elrod.me">codeblock.me</a>
+                            </li>
+                            <li>
+                                <i class="fa fa-clock-o"></i>
+                                Joined <span class="highlight">2 years ago</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <hr>
+                    
+                    <section id="peer-review" class="row">
+                        <span class="smallcaps-label">peer review</span>
+                        <ul class="list-unstyled list-stats">
+                            <li>
+                                <i class="fa fa-smile-o"></i>
+                                <a href="#">119</a> users follow user's posts
+                            </li>
+                            <li>
+                                <i class="fa fa-frown-o"></i>
+                                <span class="highlight">0</span> users filter out user's posts
+                            </li>
+                            <li>
+                                <i class="fa fa-thumbs-up"></i>
+                                <a href="#">376</a> posts were <span class="green">liked</span>
+                            </li>
+                            <li>
+                            <i class="fa fa-thumbs-down"></i>
+                                <a href="#">2</a> posts were <span class="red">disliked</span>
+                            </li>
+                            <li>
+                                <i class="fa fa-star-o"></i>
+                                Inspires <a href="#">6</a> replies on average
+                            </li>
+                        </ul>
+                    </section>
+                    
+                    <hr>
+
+                    <section id="badges" class="row">
+                        <span class="smallcaps-label block">badges</span>
+                        <span class="smallcaps-label sublabel block">development (6)</span>
+                        <ul class="list-unstyled">
+                            <li>
+                                <img class="badge" src="https://badges.fedoraproject.org/pngs/koji-if-you-build-it-01.png">
+                            </li>
+                            <li>
+                                <img class="badge" src="https://badges.fedoraproject.org/pngs/koji-if-you-build-it-01.png">
+                            </li>
+                            <li>
+                                <img class="badge" src="https://badges.fedoraproject.org/pngs/koji-if-you-build-it-01.png">
+                            </li>
+                            <li>
+                                <img class="badge" src="https://badges.fedoraproject.org/pngs/koji-if-you-build-it-01.png">
+                            </li>
+                            <li>
+                                <img class="badge" src="https://badges.fedoraproject.org/pngs/koji-if-you-build-it-01.png">
+                            </li>
+                            <li>
+                                <img class="badge" src="https://badges.fedoraproject.org/pngs/koji-if-you-build-it-01.png">
+                            </li>
+                        </ul>
+                        <span class="smallcaps-label sublabel block">content (3)</span>
+                        <ul class="list-unstyled">
+                            <li>
+                                <img class="badge" src="https://badges.fedoraproject.org/pngs/koji-if-you-build-it-01.png">
+                            </li>
+                            <li>
+                                <img class="badge" src="https://badges.fedoraproject.org/pngs/koji-if-you-build-it-01.png">
+                            </li>
+                            <li>
+                                <img class="badge" src="https://badges.fedoraproject.org/pngs/koji-if-you-build-it-01.png">
+                            </li>
+                        </ul>
+                        <span class="smallcaps-label sublabel block">community (3)</span>
+                        <ul class="list-unstyled">
+                            <li>
+                                <img class="badge" src="https://badges.fedoraproject.org/pngs/koji-if-you-build-it-01.png">
+                            </li>
+                            <li>
+                                <img class="badge" src="https://badges.fedoraproject.org/pngs/koji-if-you-build-it-01.png">
+                            </li>
+                            <li>
+                                <img class="badge" src="https://badges.fedoraproject.org/pngs/koji-if-you-build-it-01.png">
+                            </li>
+                        </ul>
+                        <span class="smallcaps-label sublabel block">quality (2)</span>
+                        <ul class="list-unstyled">
+                            <li>
+                                <img class="badge" src="https://badges.fedoraproject.org/pngs/koji-if-you-build-it-01.png">
+                            </li>
+                            <li>
+                                <img class="badge" src="https://badges.fedoraproject.org/pngs/koji-if-you-build-it-01.png">
+                            </li>
+                        </ul>
+                        <span class="smallcaps-label sublabel block">events (2)</span>
+                        <ul class="list-unstyled">
+                            <li>
+                                <img class="badge" src="https://badges.fedoraproject.org/pngs/koji-if-you-build-it-01.png">
+                            </li>
+                            <li>
+                                <img class="badge" src="https://badges.fedoraproject.org/pngs/koji-if-you-build-it-01.png">
+                            </li>
+                        </ul>
+                    </section>
+            
+                </div>
+
+                <div id="right-column" class="col-md-9 pull-right">
+                    <section id="contributed-lists">
+                        <span class="smallcaps-label">lists contributed to</span>
+                        <article class="thread row bordered-row">
+                            <div class="col-md-6 pull-left">
+                                <span class="list-name">flockinfo</span> Flock Information List
+                                <a href="#">flockinfo@lists.fedoraproject.org</a>
+                            </div>
+                            <div class="col-md-2">
+                                <i class="icomoon discussion"></i> 
+                                97 posts
+                            </div>
+                            <img class="col-md-4" src="http://placehold.it/300x50">
+                        </article>
+                        
+                        <article class="thread row bordered-row">
+                            <div class="col-md-6 pull-left">
+                                <span class="list-name">infrastructure</span> Flock Infrastructure Team
+                                <a href="#">infrastructure@lists.fedoraproject.org</a>
+                            </div>
+                            <div class="col-md-2">
+                                <i class="icomoon discussion"></i> 
+                                23 posts
+                            </div>
+                            <img class="col-md-4" src="http://placehold.it/300x50">
+                        </article>
+                        
+                        <article class="thread row bordered-row">
+                            <div class="col-md-6 pull-left">
+                                <span class="list-name">messaging-sig</span> Messaging Special Interest Group
+                                <a href="#">messaging-sig@lists.fedoraproject.org</a>
+                            </div>
+                            <div class="col-md-2">
+                                <i class="icomoon discussion"></i> 
+                                18 posts
+                            </div>
+                            <img class="col-md-4" src="http://placehold.it/300x50">
+                        </article>
+                        
+                        <article class="thread row bordered-row">
+                            <div class="col-md-6 pull-left">
+                                <span class="list-name">devel</span> Fedora Development Discussions
+                                <a href="#">devel@lists.fedoraproject.org</a>
+                            </div>
+                            <div class="col-md-2">
+                                <i class="icomoon discussion"></i> 
+                                22 posts
+                            </div>
+                            <img class="col-md-4" src="http://placehold.it/300x50">
+                        </article>
+                        
+                        <article class="thread row bordered-row">
+                            <div class="col-md-6 pull-left">
+                                <span class="list-name">translations</span> Coordinations of Translations
+                                <a href="#">translations@lists.fedoraproject.org</a>
+                            </div>
+                            <div class="col-md-2">
+                                <i class="icomoon discussion"></i> 
+                                11 posts
+                            </div>
+                            <img class="col-md-4" src="http://placehold.it/300x50">
+                        </article>
+                        
+                        <a class="btn btn-default block" href="#">More ...</a>
+                        
+                    </section>
+
+                    <section id="recent-posts">
+                        <span class="smallcaps-label">Recent posts</span>
+                        <article class="thread row">
+                            <a class="title" href="#">Freeze break: network setup for download-rdu boxes</a>
+                            <span>8 months</span>
+                            <div class="bordered-row">
+                                <span class="highlight">What could go wrong. :) <br/> +1 <br/></span>
+                                <pre>
+On Jan 12, 2013 7:30PM, "Kevin Fenze" &lt;kevin at scrye.com&gt; wrote:
+> Can I get +1s on this?
+
+> download-b01 isn't pulling the pre-bitflip content, which means our i2
+> mirrors
+> pulling from it aren't getting it either :(
+                                </pre>
+                                <a href="#">[...]</a>
+                            </div>
+                        </article>
+                        
+                        <article class="thread row">
+                            <a class="title" href="#">Freeze break: network setup for download-rdu boxes</a>
+                            <span>8 months</span>
+                            <div class="bordered-row">
+                                <span class="highlight">What could go wrong. :) <br/> +1 <br/></span>
+                                <pre>
+On Jan 12, 2013 7:30PM, "Kevin Fenze" &lt;kevin at scrye.com&gt; wrote:
+> Can I get +1s on this?
+
+> download-b01 isn't pulling the pre-bitflip content, which means our i2
+> mirrors
+> pulling from it aren't getting it either :(
+                                </pre>
+                                <a href="#">[...]</a>
+                            </div>
+                        </article>
+                        
+                        <article class="thread row">
+                            <a class="title" href="#">Freeze break: network setup for download-rdu boxes</a>
+                            <span>8 months</span>
+                            <div class="bordered-row">
+                                <span class="highlight">What could go wrong. :) <br/> +1 <br/></span>
+                                <pre>
+On Jan 12, 2013 7:30PM, "Kevin Fenze" &lt;kevin at scrye.com&gt; wrote:
+> Can I get +1s on this?
+
+> download-b01 isn't pulling the pre-bitflip content, which means our i2
+> mirrors
+> pulling from it aren't getting it either :(
+                                </pre>
+                                <a href="#">[...]</a>
+                            </div>
+                        </article>
+                        
+                        <article class="thread row">
+                            <a class="title" href="#">Freeze break: network setup for download-rdu boxes</a>
+                            <span>8 months</span>
+                            <div class="bordered-row">
+                                <span class="highlight">What could go wrong. :) <br/> +1 <br/></span>
+                                <pre>
+On Jan 12, 2013 7:30PM, "Kevin Fenze" &lt;kevin at scrye.com&gt; wrote:
+> Can I get +1s on this?
+
+> download-b01 isn't pulling the pre-bitflip content, which means our i2
+> mirrors
+> pulling from it aren't getting it either :(
+                                </pre>
+                                <a href="#">[...]</a>
+                            </div>
+                        </article>
+                        
+                        <article class="thread row">
+                            <a class="title" href="#">Freeze break: network setup for download-rdu boxes</a>
+                            <span>8 months</span>
+                            <div class="bordered-row">
+                                <span class="highlight">What could go wrong. :) <br/> +1 <br/></span>
+                                <pre>
+On Jan 12, 2013 7:30PM, "Kevin Fenze" &lt;kevin at scrye.com&gt; wrote:
+> Can I get +1s on this?
+
+> download-b01 isn't pulling the pre-bitflip content, which means our i2
+> mirrors
+> pulling from it aren't getting it either :(
+                                </pre>
+                                <a href="#">[...]</a>
+                            </div>
+                        </article>
+                    </section>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../static/hyperkitty/libs/jquery/jquery-1.10.1.min.js"><\/script>')</script>
+    <script src="../static/hyperkitty/libs/jquery/jquery-ui-1.10.3.custom.min.js"></script>
+    
+    <script src="../static/hyperkitty/libs/bootstrap/js/bootstrap.min.js"></script>
+    
+    <script src="../static/hyperkitty/libs/jquery.expander.js"></script>
+    
+    <script src="../static/hyperkitty/libs/d3.v2.min.js"></script>
+    
+    <script src="../static/hyperkitty/libs/jquery.hotkeys.js"></script>
+    
+    <script src="../static/hyperkitty/js/hyperkitty-common.js"></script>
+    
+    <script src="../static/hyperkitty/js/hyperkitty-index.js"></script>
+    
+    <script src="../static/hyperkitty/js/hyperkitty-thread.js"></script>
+    
+    <script src="../static/hyperkitty/js/hyperkitty-userprofile.js"></script>
+    
+    
+    </body>
+</html>

@@ -34,14 +34,26 @@ h1 {
     margin-bottom: 0.5em;
 }
 
+.smallcaps-label {
+    line-height: 1.5em;
+    color: #999;
+    text-transform: uppercase;
+    font-size: small;
+    font-weight: normal;
+}
 .right {
     text-align: right;
+    padding-right: 0;
 }
-
+.center {
+    text-align: center;
+}
+.block {
+    display: block;
+}
 .inline-block {
     display: inline-block;
 }
-
 .inline li, .inline-block li {
     display: inline-block;
     list-style-type: none;
@@ -375,4 +387,59 @@ a.thread-new strong {
 
 .chart-data .bars rect {
     fill: steelBlue;
+}
+
+/* boxsed row used in table layouts (thread list, category list, etc) */
+.bordered-row {
+    border: 1px solid #e5e5e5;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+    min-height: 1.2em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    background: #fff
+}
+.bordered-row:hover {
+    background: #f5f5f5;
+}
+.bordered-row .content {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.bordered-row .content-link {
+    font-weight: bold;
+    color: #0088cc
+}
+.bordered-row ul {
+    margin: 0.2em 0 0;
+    line-height: 1em;
+}
+/* links skinned as buttons */
+a.btn {
+    margin-top: 5px;
+}
+/* navigational breadcrumbs */
+.breadcrumb {
+    padding-top: 0;
+/*     padding-left: 15px; */
+    background-color: transparent;
+    font-size: 0.75em;
+    text-transform: uppercase;
+}
+.breadcrumb > li > a {
+    color: #777;
+    text-decoration: none;
+}
+.breadcrumb > li > a:focus,
+.breadcrumb > li > a:hover {
+    color: #333;
+    text-decoration: none;
+}
+.breadcrumb>li+li:before {
+    content: ">";
+    color: rgb(153, 153, 153);
+    display: inline-block;
+    vertical-align: top;
+    line-height: normal;
 }

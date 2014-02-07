@@ -1,0 +1,20 @@
+/* category overview page */
+#categories {
+    padding-right: 0;
+}
+#categories #actions,
+#category-details #actions {
+    margin-bottom: 20px;
+}
+
+#categories #filters {
+    padding-top: 0.5em;
+}
+#filters > ul {
+    display: inline;
+}
+
+/* category details page */
+#category-details #filters {
+    padding-top: 1.5em;
+}

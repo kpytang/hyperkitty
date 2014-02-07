@@ -101,3 +101,110 @@ table.user-data td {
 .user-public-profile table.user-data {
     float: left;
 }
+
+/* List of Users page */
+#users #actions {
+    padding-bottom: 20px;
+}
+#users #lookup-list {
+    color: #ccc;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding-top: 0.5em;
+}
+#users .username {
+    font-weight: bold;
+}
+#users img.avatar {
+    display: 
+}
+#users .follow {
+    padding-top: 0.75em;
+}
+
+/* User profile page (for others) */
+#user-details {
+    padding-left: 15px;
+}
+#user-details h2 {
+    margin-top: 0;
+}
+#user-details .gravatar {
+    width: 200px;
+}
+#user-details #nickname {
+    margin-top: 0.5em; 
+    margin-bottom: 0.75em;
+    color: #000;
+}
+#user-details .follow {
+    width: 200px;
+}
+#user-details hr {
+    margin-left: -15px;
+    width: 90%;
+}
+#user-details ul.list-stats {
+    padding-top: 1em;
+    color: #ccc;
+}
+#user-details ul.list-stats li {
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+}
+#user-details .highlight {
+    color: #000;
+}
+#user-details .list-stats i {
+    width: 25px;
+    font-size: medium;
+}
+/* user profile details, color for liked posts */
+.green {
+    color: #0d0;
+}
+/* user profile details, color for disliked posts */
+.red {
+    color: #d00;
+}
+#badges .sublabel {
+    color: #333;
+    font-size: smaller;
+    font-weight: bold;
+    padding-top: 1em;
+}
+#badges img {
+    display: inline;
+    width: 64px;
+    background: #fff;
+    padding-left: 0;
+    padding-right: 0;
+}
+#badges li {
+    display: inline;
+}
+#contributed-lists .list-name {
+    font-size: larger;
+    font-weight: bold;
+}
+#user-details #right-column section+section {
+    padding-top: 30px;
+}
+#user-details section#recent-posts {
+    color: #ccc;
+}
+#user-details section#recent-posts .title{
+    font-weight: bold
+}
+#user-details section#recent-posts article:nth-of-type(1){
+    margin-top: 1em;
+}
+#user-details section#recent-posts .bordered-row {
+    padding-left: 1em;
+}
+#user-details section#recent-posts pre {
+    border: none;
+    background: #fff;
+    color: #ccc;
+    padding-left: 0;
+}

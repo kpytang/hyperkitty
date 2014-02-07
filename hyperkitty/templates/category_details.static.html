@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="ROBOTS" content="INDEX, FOLLOW" />
+        <title>
+            List Archives - Category Details
+        </title>
+        <meta name="author" content="" />
+        <meta name="dc.language" content="en" />
+        <link rel="shortcut icon" href="../static/hyperkitty/img/favicon.ico" />
+        <link rel="stylesheet" media="all" href="../static/hyperkitty/libs/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../static/hyperkitty/libs/font-awesome/css/font-awesome.min.css">
+        
+        <link rel="stylesheet" media="all" href="../static/hyperkitty/css/hyperkitty-base.css" />
+        
+        <link rel="stylesheet" media="all" href="../static/hyperkitty/css/hyperkitty-common.css" />
+        
+        <link rel="stylesheet" media="all" href="../static/hyperkitty/css/hyperkitty-index.css" />
+        
+        <link rel="stylesheet" media="all" href="../static/hyperkitty/css/hyperkitty-user.css" />
+        
+        <link rel="stylesheet" media="all" href="../static/hyperkitty/css/hyperkitty-overview.css" />
+        
+        <link rel="stylesheet" media="all" href="../static/hyperkitty/css/hyperkitty-threadslist.css" />
+        
+        <link rel="stylesheet" media="all" href="../static/hyperkitty/css/hyperkitty-message.css" />
+        
+        <link rel="stylesheet" media="all" href="../static/hyperkitty/css/hyperkitty-categories.css" />
+        
+    </head>
+
+    <body>
+
+    <div class="container-full">
+        <nav class="navbar navbar-fixed-top navbar-default">
+            <div class="container">
+                <!--part of the navbar that will always be present-->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button> 
+                    <a class="navbar-brand" id="archives-name" href="/">List Archives</a>
+                </div>
+                <!--part of the navbar that will be collapsed on small screens-->
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav nav-pills">
+                        <li><a href="#">Lists</a></li>
+                        <li class="active"><a href="#">Categories</a></li>
+                        <li><a href="#">Tags</a></li>
+                        <li><a href="#">Users</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right auth">
+                        <li><a class="mm_logout" href="/accounts/logout/?next=/">Logout</a></li>
+                        <li><a class="right" href="/accounts/profile/">email@address.com</a></li>
+                    </ul>
+                    <form name="search" method="get" action="/search" class="navbar-form navbar-right" role="search">
+                        <input type="hidden" name="list" value="cloud@lists.fedoraproject.org" />
+                        <div class="form-group">
+                            <input name="query" type="text" class="form-control" placeholder="Search this list"/>
+                        </div>
+                        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container" id="category-details">
+            <div class="row">
+                <ol class="breadcrumb" >
+                    <li><a href="/"> All categories </a></li>
+                    <li class="active">
+                        Questions
+                    </li>
+                </ol>
+            </div>
+
+            <div class="row" id="actions">
+                <div class="col-md-7">
+                    <h3><span class="label label-info" id="category-name">question</span></h3>
+                </div>
+                <div class="pull-right" id="filters">
+                    <span class="smallcaps-label">show: &nbsp;</span>
+                    <div class="btn-group btn-group-sm">
+                        <button type="button" class="btn btn-default active">all lists</button>
+                        <button type="button" class="btn btn-default">my lists</button>
+                    </div>
+                    <span class="smallcaps-label">time period: &nbsp;</span>
+                    <div class="btn-group btn-group-sm">
+                        <button type="button" class="btn btn-default">Past 30 days</button>
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Past 3 months</a></li>
+                            <li><a href="#">Past 6 months</a></li>
+                            <li><a href="#">Past 1 year</a></li>
+                            <li><a href="#">Past 2 years</a></li>
+                            <li><a href="#">All time</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- heading labels -->
+            <div class="row">
+                <span class="smallcaps-label col-md-2">list</span>
+                <span class="smallcaps-label col-md-6">discussion</span>
+                <span class="smallcaps-label col-md-2">started by</span>
+                <span class="smallcaps-label col-md-1">comments</span>
+                <span class="smallcaps-label col-md-1 center">age</span>
+            </div>
+
+            <!-- thread list -->
+            <div class="row bordered-row">
+                <span class="col-md-2">arm</span>
+                <span class="col-md-6 content-link"><a href="#">Steps to install Fedora on Mirabox?</a></span>
+                <span class="col-md-2">Gerard Ryan</span>
+                <span class="col-md-1">
+                    <i class="icomoon discussion"></i> 
+                    43
+                </span>
+                <span class="col-md-1 center">4 days</span>
+            </div>
+
+            <div class="row bordered-row">
+                <span class="col-md-2">arm</span>
+                <span class="col-md-6 content-link"><a href="#">Is it time to get an arm notebook?</a></span>
+                <span class="col-md-2">Richard M. Jones</span>
+                <span class="col-md-1">
+                    <i class="icomoon discussion"></i> 
+                    3
+                </span>
+                <span class="col-md-1 center">1 month</span>
+            </div>
+
+            <div class="row bordered-row">
+                <span class="col-md-2">arm</span>
+                <span class="col-md-6 content-link"><a href="#">Plans for fpc on arm?</a></span>
+                <span class="col-md-2">Hans de Geode</span>
+                <span class="col-md-1">
+                    <i class="icomoon discussion"></i> 
+                    15
+                </span>
+                <span class="col-md-1 center">1 month</span>
+            </div>
+
+            <div class="row bordered-row">
+                <span class="col-md-2">astronomy</span>
+                <span class="col-md-6 content-link"><a href="#">Another try at IRAF?</a></span>
+                <span class="col-md-2">Joseph Wang</span>
+                <span class="col-md-1">
+                    <i class="icomoon discussion"></i> 
+                    29
+                </span>
+                <span class="col-md-1 center">> 2 years</span>
+            </div>
+
+            <div class="row bordered-row">
+                <span class="col-md-2">electronic-lab</span>
+                <span class="col-md-6 content-link"><a href="#">Request to add Icaro to Fel</a></span>
+                <span class="col-md-2">Alejandro Perez</span>
+                <span class="col-md-1">
+                    <i class="icomoon discussion"></i> 
+                    6
+                </span>
+                <span class="col-md-1 center">1 week</span>
+            </div>
+
+            <a class="btn btn-default block" href="#">load more ...</a>
+        </div>
+
+    </div>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../static/hyperkitty/libs/jquery/jquery-1.10.1.min.js"><\/script>')</script>
+    <script src="../static/hyperkitty/libs/jquery/jquery-ui-1.10.3.custom.min.js"></script>
+    
+    <script src="../static/hyperkitty/libs/bootstrap/js/bootstrap.min.js"></script>
+    
+    <script src="../static/hyperkitty/libs/jquery.expander.js"></script>
+    
+    <script src="../static/hyperkitty/libs/d3.v2.min.js"></script>
+    
+    <script src="../static/hyperkitty/libs/jquery.hotkeys.js"></script>
+    
+    <script src="../static/hyperkitty/js/hyperkitty-common.js"></script>
+    
+    <script src="../static/hyperkitty/js/hyperkitty-index.js"></script>
+    
+    <script src="../static/hyperkitty/js/hyperkitty-thread.js"></script>
+    
+    <script src="../static/hyperkitty/js/hyperkitty-userprofile.js"></script>
+    
+    
+    </body>
+</html>

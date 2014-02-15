@@ -33,7 +33,7 @@ function setup_index(url_template) {
             var cls = $(this).val();
             hide_by_class[cls] = $(this).prop("checked");
         });
-        var filter = $.trim($(".filter-lists input").val().toLowerCase());
+        var filter = $.trim($(".filter-lists input[type=text]").val().toLowerCase());
         $("table.lists tr.list").each(function() {
             var list_name = $.trim($(this).find("a.list-name").text());
             var list_addr = $.trim($(this).find("a.list-address").text());
@@ -74,8 +74,6 @@ function setup_index(url_template) {
         var target = $("a[name="+$(this).attr("href").substring(1)+"]");
         $(window).scrollTop(target.offset().top - 80); //80 is a bit more than header height
     });
-    
-    
 
     // Update list graphs
     $(".all-lists table.lists tr.list").each(function() {

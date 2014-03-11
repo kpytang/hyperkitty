@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load url from future %}
+{% load gravatar %}
+{% load hk_generic %}
+
+{% block content %}
+
+<div id="categories">
+
+    <!-- filters -->
+    <div class="row">
+        <div class="col-tn-8">
+            <a class="btn btn-default" href="#"><i class="fa fa-plus"></i> Suggest a new category</a>
+        </div>
+        <div class="col-tn-4" id="filters">
+            <span class="smallcaps-label">show: </span>
+            <div class="btn-group btn-group-sm">
+                <button type="button" class="btn btn-default active">all</button>
+                <button type="button" class="btn btn-default">subscribed</button>
+                <button type="button" class="btn btn-default">unsubscribed</button>
+            </div>
+        </div>
+    </div>
+
+    <table class="table category-list col-tn-12">
+        <thead>
+            <tr>
+                <th class="col-tn-2">category</th>
+                <th class="col-tn-5">description</th>
+                <th class="col-tn-3">discussions (past 30 days)</th>
+                <th class="col-tn-2 category-subscribe"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="category-label">
+                    <span class="label label-default">meeting</span>
+                </td>
+                <td class="category-description">
+                    <span>Agendas and notes from meetings</span>
+                </td>
+                <td class="category-stats">
+                    <ul class="list-inline">
+                        <li>
+                            <i class="icomoon discussion"></i> 
+                            43
+                        </li>
+                    </ul>
+                </td>
+                <td class="category-subscribe">
+                    <a class="btn btn-default btn-lg"><i class="fa fa-plus"></i>subscribe</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}

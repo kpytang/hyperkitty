@@ -65,7 +65,7 @@ def get_email_tag(tag):
     return output
 
 
-def generate_thread_per_category():
+def generate_threads_per_category():
     threads = generate_random_thread()
     categories = {}
     for thread in threads:

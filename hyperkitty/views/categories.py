@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+#-*- coding: utf-8 -*-
 # Copyright (C) 1998-2012 by the Free Software Foundation, Inc.
 #
 # This file is part of HyperKitty.
@@ -18,7 +18,38 @@
 #
 #
 
-from django.http import Http404
+
+import datetime
+
+from django.shortcuts import render
+from django.conf import settings
+
+from hyperkitty.lib import get_store
+from hyperkitty.lib.view_helpers import show_mlist
+from hyperkitty.lib.mailman import is_mlist_authorized
+
+if settings.USE_MOCKUPS:
+    from hyperkitty.lib.mockup import generate_threads_per_category
 
 def categories(request):
-    raise Http404("This feature has not been implemented yet.")
+    if settings.USE_MOCKUPS:
+        categories = generate_threads_per_category()
+        #categories = sorted(categories, key=lambda category: category.name)
+    else:
+        categories = {}
+
+    # sorting
+    sort_mode = request.GET.get('sort')
+    #if sort_mode == "subscribed":
+    #    lists.sort(key=lambda l: l.recent_threads_count, reverse=True)
+    #elif sort_mode == "unsubscribed":
+    #    lists.sort(key=lambda l: l.recent_participants_count, reverse=True)
+    #else:
+    #    sort_mode = None
+
+    context = {
+        'view_name': 'categories',
+        'categories': categories,
+        'sort_mode': sort_mode,
+        }
+    return render(request, "categories.html", context)

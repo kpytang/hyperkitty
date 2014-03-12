@@ -1,7 +1,23 @@
 //=== categories overview page ==/
 #categories {
-    .filters {
+    .header {
         margin-top: 1em;
+
+        .btn-group {
+            margin-top: 1em;
+        }
+
+        p.hide-switches {
+            margin: 0;
+            padding-top: 0.5em;
+            label:first-child {
+                display: inline;
+                margin-right: 2em;
+            }
+            input {
+                margin: 0;
+            }
+        }
     }
 
     table.category-list {
@@ -15,6 +31,15 @@
 
         thead > tr > th {
             border: none;
+        }
+
+        tr.category  {
+            &:hover {
+                &:extend(.row-hover);
+                td.category-subscribe {
+                    background-color: white;
+                }
+            }
         }
 
         .category-subscribe {
@@ -34,6 +59,14 @@
             border-right: 1px solid @rowBorderColor;
             border-top: 1px solid @rowBorderColor;
             border-bottom: 1px solid @rowBorderColor;
+        }
+    }
+}
+
+@media (max-width: @screen-xs-max) {
+    #categories {
+        #filters {
+            margin-top: 1em;
         }
     }
 }

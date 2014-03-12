@@ -128,7 +128,7 @@ def generate_random_thread():
 
     dead_category = Category()
     dead_category.name = 'dead'
-    dead_category.description = "inactive threads/discussions"
+    dead_category.description = "inactive discussions"
     dead_category.color = None
 
     ## 1

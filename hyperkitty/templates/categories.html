@@ -1,47 +1,46 @@
 {% extends "base.html" %}
 {% load url from future %}
-{% load gravatar %}
+{% load i18n %}
 {% load hk_generic %}
 
 {% block content %}
 
 <div id="categories">
 
-    <div class="row filters">
-        <div class="col-tn-8">
+    <div class="row header">
+        <div class="col-tn-12 col-md-8">
             <a class="btn btn-default" href="#"><i class="fa fa-plus"></i> Suggest a new category</a>
         </div>
-        <div class="col-tn-4" id="filters">
-            <span class="smallcaps-label">show: </span>
-            <div class="btn-group btn-group-sm">
-                <button type="button" class="btn btn-default active">all</button>
-                <button type="button" class="btn btn-default">subscribed</button>
-                <button type="button" class="btn btn-default">unsubscribed</button>
-            </div>
+        <div class="btn-group col-tn-12">
+            <p class="hide-switches">
+                <label><input type="checkbox" value="unsubscribed" /> Hide unsubscribed</label>
+                <label><input type="checkbox" value="subscribed" /> Hide subscribed</label>
+            </p>
         </div>
     </div> <!-- /row, container for filters and btns -->
 
-    <table class="table category-list col-tn-12">
-        <thead>
+    <table class="table category-list">
+        <thead class="hidden-tn">
             <tr>
-                <th class="col-tn-2">category</th>
-                <th class="col-tn-5">description</th>
-                <th class="col-tn-3">discussions (past 30 days)</th>
+                <th class="col-tn-5">category</th>
+                <th class="hidden-tn col-tn-5">description</th>
+                <th class="col-tn-4">discussions (past 30 days)</th>
                 <th class="col-tn-2 category-subscribe"></th>
             </tr>
         </thead>
         <tbody>
             {% for category in categories %}
-            <tr>
-                <td class="category-label">
-                    <span {% if category.color %} style="background:#{{ category.color }}" class="
+            <tr class="category {% if category.subscribed %}subscribed {% else %}unsubscribed{% endif %}">
+                <td class="category-label col-tn-5">
+                    <a class="category-link" href=""><span {% if category.color %} style="background:#{{ category.color }}" class="
                         {% else %}class="label-default {% endif %}label">
-                    {{ category.name }}</span>                        
+                    {{ category.name }}</span></a>
+                    <span class="hidden-sm hidden-md hidden-lg"><br>{{ category.description }}</span>
                 </td>
-                <td class="category-description">
+                <td class="category-description hidden-tn">
                     <span>{{ category.description }} </span>
                 </td>
-                <td class="category-stats">
+                <td class="category-stats right col-tn-3">
                     <ul class="list-inline">
                         <li>
                             <i class="icomoon discussion"></i> 
@@ -49,12 +48,14 @@
                         </li>
                     </ul>
                 </td>
-                <td class="category-subscribe">
+                <td class="category-subscribe col-tn-2">
                     <a class="btn btn-default">
                         {% if category.subscribed %}
-                        <i class="fa fa-minus"></i> unsubscribe
+                        <i class="fa fa-minus"></i>
+                        <span class="hidden-tn"> unsubscribe</span>
                         {% else %}
-                        <i class="fa fa-plus"></i> subscribe
+                        <i class="fa fa-plus"></i>
+                        <span class="hidden-tn"> subscribe</span>
                         {% endif %}
                     </a>
                 </td>
@@ -64,4 +65,35 @@
     </table> <!-- /container for list of category labels -->
 
 </div>
+{% endblock %}
+
+{% block additionaljs %}
+
+<script>
+    // Filter
+    $(".hide-switches input").click(function() {
+        var hide_by_class = {};
+        $(".hide-switches input").each(function() {
+            var cls = $(this).val();
+            hide_by_class[cls] = $(this).prop("checked");
+        });
+        $("table.category-list tr.category").each(function() {
+            var must_hide = false;
+            for (cls in hide_by_class) {
+                if ($(this).hasClass(cls) && hide_by_class[cls]) {
+                    must_hide = true;
+                }
+            }
+            if (must_hide) {
+                $(this).hide();
+            } else {
+                $(this).show();
+            }
+        });
+    });
+    $("table.category-list tr.category").click(function(e) {
+        document.location.href = $(this).find("a.category-link").attr("href");
+    });
+</script>
+
 {% endblock %}

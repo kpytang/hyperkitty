@@ -35,27 +35,13 @@ if settings.USE_MOCKUPS:
 def categories(request):
     if settings.USE_MOCKUPS:
         categories, threads_by_category = generate_threads_per_category()
-        categories = sorted(categories, key=lambda category:category.name)
-        #sorted(categories, key=lambda categories:categories['category'['name']])
-        #for category_label in threads_by_category:
-        #    threads_by_category[category]
-        
+        categories = sorted(categories, key=lambda category:category.name)       
     else:
         categories = {}
-
-    # sorting
-    sort_mode = request.GET.get('sort')
-    #if sort_mode == "subscribed":
-    #    lists.sort(key=lambda l: l.recent_threads_count, reverse=True)
-    #elif sort_mode == "unsubscribed":
-    #    lists.sort(key=lambda l: l.recent_participants_count, reverse=True)
-    #else:
-    #    sort_mode = None
 
     context = {
         'view_name': 'categories',
         'categories': categories,
         'category_threads': threads_by_category,
-        'sort_mode': sort_mode,
-        }
+    }
     return render(request, "categories.html", context)

@@ -9,7 +9,7 @@
 
 {% block content %}
 
-<div id="categories">
+<div id="category_overview">
 
     <div class="row header">
         <div class="col-tn-12 col-md-8">
@@ -25,8 +25,7 @@
         </div>
     </div> <!-- /row, container for filters and btns -->
 
-    <p class="table-title hidden-sm hidden-md hidden-lg">Posts per category (past 30 days)</p>
-    <table class="table category-list">
+    <table class="table list">
         <thead class="hidden-tn hidden-xs">
             <tr>
                 <th>list</th>
@@ -38,28 +37,29 @@
         </thead>
         <tbody>
             {% for thread in category_threads %}
-            <tr>
-                <td class="">
+            <tr class="thread {% if thread.list.subscribed %}subscribed {% else %}unsubscribed{% endif %}"">
+                <td class="col-tn-2">
                     {{ thread.list.name }}
                 </td>
-                <td class="">
-                    <span>{{ thread.title }} </span>
+                <td class="thread-title col-tn-5">
+                    <a class="thread-link" href="#">{{ thread.title }}</a>
                 </td>
-                <td class="">
-                    <span>{{ thread.author }} </span>
+                <td class="col-tn-2">
+                    <span>{{ thread.author }}</span>
                 </td>
-                <td class="">
+                <td class="col-tn-2">
                     <i class="icomoon discussion"></i> 
-                    <span>{{ thread.answers|length }} </span>
+                    <span>{{ thread.answers|length }}</span>
                 </td>
-                <td class="">
-                    <span>{{ thread.age }} </span>
+                <td class="col-tn-1">
+                    <span>{{ thread.age }}</span>
                 </td>
             </tr>
             {% endfor %}
         </tbody>
-    </table> <!-- /container for list of category labels -->
+    </table> <!-- /container for list of threads -->
 
+    {% include "paginator.html" with pager=threads %}
 </div>
 {% endblock %}
 
@@ -73,7 +73,7 @@
             var cls = $(this).val();
             hide_by_class[cls] = $(this).prop("checked");
         });
-        $("table.category-list tr.category").each(function() {
+        $("table.list tr.thread").each(function() {
             var must_hide = false;
             for (cls in hide_by_class) {
                 if ($(this).hasClass(cls) && hide_by_class[cls]) {
@@ -88,8 +88,8 @@
         });
     });
     // click behavior for each row
-    $("table.category-list tr.category").click(function(e) {
-        document.location.href = $(this).find("a.category-link").attr("href");
+    $("table.list tr.category").click(function(e) {
+        document.location.href = $(this).find("a.thread-link").attr("href");
     });
 </script>
 

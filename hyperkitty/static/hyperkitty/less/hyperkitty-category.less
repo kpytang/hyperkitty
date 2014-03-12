@@ -1,5 +1,6 @@
 //=== categories overview page ==/
-#categories {
+#categories,
+#category_overview {
     .header {
         margin-top: 1em;
 
@@ -19,14 +20,11 @@
             }
         }
     }
+}
 
-    p.table-title {
-        &:extend(.small-caps);
-        margin-top: 1em;
-        margin-bottom: 0;
-    }
-
-    table.category-list {
+#categories,
+#category_overview {
+    table.list {
         border-collapse: separate;
         border-spacing: 0 5px;
         margin-top: 1em;
@@ -39,7 +37,17 @@
             &:extend(.small-caps);
             border: none;
         }
+    }
+}
 
+#categories {
+    p.table-title {
+        &:extend(.small-caps);
+        margin-top: 1em;
+        margin-bottom: 0;
+    }
+
+    table.list {
         tr.category  {
             &:hover {
                 &:extend(.row-hover);
@@ -48,7 +56,6 @@
                 }
             }
         }
-
         span.label {
             font-size: 90%;
         }
@@ -70,6 +77,40 @@
             border-top: 1px solid @rowBorderColor;
             border-bottom: 1px solid @rowBorderColor;
         }
+    }
+}
+
+#category_overview {
+    .label {
+        font-size: 120%;
+    }
+
+    table.list tr.thread {
+        &:hover {
+            &:extend(.row-hover);
+            a {
+                color: white;
+            }
+        }
+        td {
+            border-bottom: 1px solid @rowBorderColor;
+        }
+        td:first-child {
+            border-left: 1px solid @rowBorderColor;
+        }
+        td:last-child {
+            border-right: 1px solid @rowBorderColor;
+        }
+
+        .thread-title {
+            font-weight: bold;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    .paginator {
+        text-align: center;
     }
 }
 

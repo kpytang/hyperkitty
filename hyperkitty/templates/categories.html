@@ -12,7 +12,7 @@
 <div id="categories">
 
     <div class="row header">
-        <div class="col-tn-12 col-md-8">
+        <div class="col-tn-12">
             <a class="btn btn-default" href="#"><i class="fa fa-plus"></i> Suggest a new category</a>
         </div>
         <div class="btn-group col-tn-12">
@@ -25,7 +25,7 @@
 
     {% if categories %}
     <p class="table-title hidden-sm hidden-md hidden-lg">Posts per category (past 30 days)</p>
-    <table class="table category-list">
+    <table class="table list">
         <thead class="hidden-tn hidden-xs">
             <tr>
                 <th>category</th>
@@ -88,7 +88,7 @@
             var cls = $(this).val();
             hide_by_class[cls] = $(this).prop("checked");
         });
-        $("table.category-list tr.category").each(function() {
+        $("table.list tr.category").each(function() {
             var must_hide = false;
             for (cls in hide_by_class) {
                 if ($(this).hasClass(cls) && hide_by_class[cls]) {
@@ -103,7 +103,7 @@
         });
     });
     // click behavior for each row
-    $("table.category-list tr.category").click(function(e) {
+    $("table.list tr.category").click(function(e) {
         document.location.href = $(this).find("a.category-link").attr("href");
     });
 </script>

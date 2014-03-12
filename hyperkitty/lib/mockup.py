@@ -95,8 +95,9 @@ def generate_threads_per_category():
     for thread in threads:
         category = thread.category
         if category is not None:
-            categories.append(category)
-            if category in category_threads.keys():
+            if category not in categories:
+                categories.append(category)
+            if category.name in category_threads.keys():
                 category_threads[category.name].append(thread)
             else:
                 category_threads[category.name] = [thread]

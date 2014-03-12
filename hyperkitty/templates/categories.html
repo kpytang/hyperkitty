@@ -40,7 +40,7 @@
             {% for category in categories %}
             <tr class="category {% if category.subscribed %}subscribed {% else %}unsubscribed{% endif %}">
                 <td class="category-label col-tn-5 col-xs-2">
-                    <a class="category-link" href="#"><span {% if category.color %} style="background:#{{ category.color }}" class="
+                    <a class="category-link" href="{% url 'category_overview' category_label=category.name %}"><span {% if category.color %} style="background:#{{ category.color }}" class="
                         {% else %}class="label-default {% endif %}label">
                     {{ category.name }}</span></a>
                     <span class="visible-tn">{{ category.description }}</span>
@@ -49,7 +49,7 @@
                     <span>{{ category.description }} </span>
                 </td>
                 <td class="category-stats col-tn-3 col-xs-2 col-sm-4 col-md-3">
-                    <ul class="list-inline">
+                    <ul class="list-inline list-stats">
                         <li>
                             <i class="icomoon discussion"></i> 
                             {{ category_threads|get_item:category.name|length }}

@@ -20,16 +20,23 @@
         }
     }
 
-    table.category-list {
+    p.table-title {
+        &:extend(.small-caps);
         margin-top: 1em;
+        margin-bottom: 0;
+    }
+
+    table.category-list {
         border-collapse: separate;
         border-spacing: 0 5px;
+        margin-top: 1em;
 
         td {
             vertical-align: middle;
         }
 
         thead > tr > th {
+            &:extend(.small-caps);
             border: none;
         }
 
@@ -65,8 +72,11 @@
 
 @media (max-width: @screen-xs-max) {
     #categories {
-        #filters {
-            margin-top: 1em;
+        table.category-list {
+            margin-top: 0;
+        }
+        td.category-stats {
+            .right();
         }
     }
 }

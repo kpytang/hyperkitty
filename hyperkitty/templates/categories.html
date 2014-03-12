@@ -19,28 +19,31 @@
         </div>
     </div> <!-- /row, container for filters and btns -->
 
+    <p class="table-title visible-tn visible-xs">Posts per category (past 30 days)</p>
     <table class="table category-list">
-        <thead class="hidden-tn">
+        <thead class="hidden-tn hidden-xs">
             <tr>
-                <th class="col-tn-5">category</th>
-                <th class="hidden-tn col-tn-5">description</th>
-                <th class="col-tn-4">discussions (past 30 days)</th>
-                <th class="col-tn-2 category-subscribe"></th>
+                <th>category</th>
+                <th>description</th>
+                <th>discussions
+                    <span class="hidden-xs">(past 30 days)</span>
+                </th>
+                <th class="category-subscribe"></th>
             </tr>
         </thead>
         <tbody>
             {% for category in categories %}
             <tr class="category {% if category.subscribed %}subscribed {% else %}unsubscribed{% endif %}">
-                <td class="category-label col-tn-5">
-                    <a class="category-link" href=""><span {% if category.color %} style="background:#{{ category.color }}" class="
+                <td class="category-label col-tn-5 col-xs-2">
+                    <a class="category-link" href="#"><span {% if category.color %} style="background:#{{ category.color }}" class="
                         {% else %}class="label-default {% endif %}label">
                     {{ category.name }}</span></a>
-                    <span class="hidden-sm hidden-md hidden-lg"><br>{{ category.description }}</span>
+                    <span class="visible-tn">{{ category.description }}</span>
                 </td>
-                <td class="category-description hidden-tn">
+                <td class="category-description hidden-tn col-xs-4 col-md-5">
                     <span>{{ category.description }} </span>
                 </td>
-                <td class="category-stats right col-tn-3">
+                <td class="category-stats col-tn-3 col-xs-2 col-sm-4 col-md-3">
                     <ul class="list-inline">
                         <li>
                             <i class="icomoon discussion"></i> 
@@ -48,7 +51,7 @@
                         </li>
                     </ul>
                 </td>
-                <td class="category-subscribe col-tn-2">
+                <td class="category-subscribe col-tn-2 col-xs-2">
                     <a class="btn btn-default">
                         {% if category.subscribed %}
                         <i class="fa fa-minus"></i>
@@ -91,6 +94,7 @@
             }
         });
     });
+    // click behavior for each row
     $("table.category-list tr.category").click(function(e) {
         document.location.href = $(this).find("a.category-link").attr("href");
     });

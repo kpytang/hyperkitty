@@ -214,3 +214,7 @@ def until(value, limit):
 @register.filter
 def to_json(value):
     return json.dumps(value)
+
+@register.filter
+def get_item(dictionary, key):
+    return dictionary.get(key)

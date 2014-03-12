@@ -32,8 +32,7 @@ class Email(object):
         self.title = ''
         self.body = ''
         self.tags = []
-        self.category = 'question'
-        self.category_tag = None
+        self.category = None
         self.participants = set(['Pierre-Yves Chibon'])
         self.answers = []
         self.liked = 0
@@ -53,6 +52,17 @@ class Author(object):
         self.kudos = 0
         self.avatar = None
 
+class Category(object):
+    """ Category class containing the information related to categories"""
+
+    def __init__(self):
+        """ Constructor.
+        Instanciate the default attributes of the object.
+        """
+        self.name = ''
+        self.description = ''
+        self.color = None
+        self.subscribed = False
 
 def get_email_tag(tag):
     threads = generate_random_thread()
@@ -64,19 +74,19 @@ def get_email_tag(tag):
             output.append(email)
     return output
 
-
 def generate_threads_per_category():
     threads = generate_random_thread()
-    categories = {}
+    categories = []
+    category_threads = {}
     for thread in threads:
         category = thread.category
-        if thread.category_tag:
-            category = thread.category_tag
-        if category in categories.keys():
-            categories[category].append(thread)
-        else:
-            categories[category] = [thread]
-    return categories
+        if category is not None:
+            categories.append(category)
+            if category in category_threads.keys():
+                category_threads[category.name].append(thread)
+            else:
+                category_threads[category.name] = [thread]
+    return categories, category_threads
 
 def generate_top_author():
     authors = []
@@ -103,6 +113,23 @@ def generate_top_author():
 
 def generate_random_thread():
     threads = []
+
+    ## categories for the threads
+    todo_category = Category()
+    todo_category.name = 'todo'
+    todo_category.description = "list of tasks to be completed"
+    todo_category.color = '09f'
+
+    agenda_category = Category()
+    agenda_category.name = 'agenda'
+    agenda_category.description = "agenda items"
+    agenda_category.color = 'fa0'
+    agenda_category.subscribed = True
+
+    dead_category = Category()
+    dead_category.name = 'dead'
+    dead_category.description = "inactive threads/discussions"
+    dead_category.color = None
 
     ## 1
     email = Email()
@@ -146,7 +173,7 @@ The new default for credential caches will be the /run/user/username directory.
     email.participants = set(['Stanislav Ochotnický', 'Tom "spot" Callaway', 'Stephen Gallagher', 'Jason Tibbitts', 'Rex Dieter', 'Toshio Kuratomi'])
     email.answers.extend([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19])
     email.liked = 5
-    email.category = 'todo'
+    email.category = todo_category
     email.author = 'Stanislav Ochotnický'
     email.avatar = 'http://sochotni.fedorapeople.org/sochotni.jpg'
     threads.append(email)
@@ -161,7 +188,7 @@ The new default for credential caches will be the /run/user/username directory.
     email.participants = set(['Toshio Kuratomi', 'Tom "spot" Callaway', 'Robyn Bergeron', 'Max Spevack'])
     email.answers.extend([1,2,3,4,5,6,7,8,9,10,11,12])
     email.liked = 20
-    email.category = 'agenda'
+    email.category = agenda_category
     email.author = 'Toshio Kuratomi'
     email.avatar = 'https://secure.gravatar.com/avatar/7a9c1d88f484c9806bceca0d6d91e948'
     threads.append(email)
@@ -178,8 +205,7 @@ The new default for credential caches will be the /run/user/username directory.
     email.liked = 0
     email.author = 'Pierre-Yves Chibon'
     email.avatar = 'https://secure.gravatar.com/avatar/072b4416fbfad867a44bc7a5be5eddb9'
-    email.category = 'shut down'
-    email.category_tag = 'dead'
+    email.category = dead_category
     threads.append(email)
 
     return threads

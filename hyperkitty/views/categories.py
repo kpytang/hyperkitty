@@ -20,6 +20,7 @@
 
 
 import datetime
+from operator import attrgetter
 
 from django.shortcuts import render
 from django.conf import settings
@@ -33,8 +34,12 @@ if settings.USE_MOCKUPS:
 
 def categories(request):
     if settings.USE_MOCKUPS:
-        categories = generate_threads_per_category()
-        #categories = sorted(categories, key=lambda category: category.name)
+        categories, threads_by_category = generate_threads_per_category()
+        categories = sorted(categories, key=lambda category:category.name)
+        #sorted(categories, key=lambda categories:categories['category'['name']])
+        #for category_label in threads_by_category:
+        #    threads_by_category[category]
+        
     else:
         categories = {}
 
@@ -50,6 +55,7 @@ def categories(request):
     context = {
         'view_name': 'categories',
         'categories': categories,
+        'category_threads': threads_by_category,
         'sort_mode': sort_mode,
         }
     return render(request, "categories.html", context)

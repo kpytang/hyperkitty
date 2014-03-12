@@ -7,8 +7,7 @@
 
 <div id="categories">
 
-    <!-- filters -->
-    <div class="row">
+    <div class="row filters">
         <div class="col-tn-8">
             <a class="btn btn-default" href="#"><i class="fa fa-plus"></i> Suggest a new category</a>
         </div>
@@ -20,7 +19,7 @@
                 <button type="button" class="btn btn-default">unsubscribed</button>
             </div>
         </div>
-    </div>
+    </div> <!-- /row, container for filters and btns -->
 
     <table class="table category-list col-tn-12">
         <thead>
@@ -32,27 +31,37 @@
             </tr>
         </thead>
         <tbody>
+            {% for category in categories %}
             <tr>
                 <td class="category-label">
-                    <span class="label label-default">meeting</span>
+                    <span {% if category.color %} style="background:#{{ category.color }}" class="
+                        {% else %}class="label-default {% endif %}label">
+                    {{ category.name }}</span>                        
                 </td>
                 <td class="category-description">
-                    <span>Agendas and notes from meetings</span>
+                    <span>{{ category.description }} </span>
                 </td>
                 <td class="category-stats">
                     <ul class="list-inline">
                         <li>
                             <i class="icomoon discussion"></i> 
-                            43
+                            {{ category_threads|get_item:category.name|length }}
                         </li>
                     </ul>
                 </td>
                 <td class="category-subscribe">
-                    <a class="btn btn-default btn-lg"><i class="fa fa-plus"></i>subscribe</a>
+                    <a class="btn btn-default">
+                        {% if category.subscribed %}
+                        <i class="fa fa-minus"></i> unsubscribe
+                        {% else %}
+                        <i class="fa fa-plus"></i> subscribe
+                        {% endif %}
+                    </a>
                 </td>
             </tr>
+            {% endfor %}
         </tbody>
-    </table>
+    </table> <!-- /container for list of category labels -->
 
 </div>
 {% endblock %}

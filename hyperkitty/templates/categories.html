@@ -19,7 +19,8 @@
         </div>
     </div> <!-- /row, container for filters and btns -->
 
-    <p class="table-title visible-tn visible-xs">Posts per category (past 30 days)</p>
+    {% if categories %}
+    <p class="table-title hidden-sm hidden-md hidden-lg">Posts per category (past 30 days)</p>
     <table class="table category-list">
         <thead class="hidden-tn hidden-xs">
             <tr>
@@ -66,6 +67,9 @@
             {% endfor %}
         </tbody>
     </table> <!-- /container for list of category labels -->
+    {% else %}
+    <p>No categories have been defined yet.</p>
+    {% endif %}
 
 </div>
 {% endblock %}

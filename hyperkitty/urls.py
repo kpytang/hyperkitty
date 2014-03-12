@@ -107,7 +107,9 @@ urlpatterns = patterns('hyperkitty.views',
 
     # Categories and Tags
     url(r'^categories/$', 'categories.categories', name='categories_overview'),
-    url(r'^tags/$', 'tags.tags', name='tags_overview'),
+    url(r'^categories/(?P<category_label>.*)/$', 'categories.category', name='category_overview'),
+    url(r'^tags/$', 'categories.categories', name='tags_overview'),
+
 
     # REST API
     url(r'^api/$', TemplateView.as_view(template_name="api.html")),

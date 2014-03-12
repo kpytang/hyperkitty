@@ -19,6 +19,8 @@
 # Author: Aamir Khan <syst3m.w0rm@gmail.com>
 #
 
+import datetime
+
 class Email(object):
     """ Email class containing the information needed to store and
     display email threads.
@@ -38,6 +40,7 @@ class Email(object):
         self.liked = 0
         self.author = ''
         self.avatar = None
+        self.list = None
 
 class Author(object):
     """ Author class containing the information needed to get the top
@@ -62,6 +65,17 @@ class Category(object):
         self.name = ''
         self.description = ''
         self.color = None
+        self.subscribed = False
+
+class List(object):
+    """ Category class containing the information related to categories"""
+
+    def __init__(self):
+        """ Constructor.
+        Instanciate the default attributes of the object.
+        """
+        self.name = ''
+        self.description = ''
         self.subscribed = False
 
 def get_email_tag(tag):
@@ -113,8 +127,19 @@ def generate_top_author():
 
 def generate_random_thread():
     threads = []
+    
+    ## lists for threads
+    cloud = List()
+    cloud.name = 'cloud'
+    cloud.list_address = 'cloud@lists.fedoraproject.org'
+    cloud.subscribed = True
 
-    ## categories for the threads
+    packaging = List()
+    packaging.name = 'packaging'
+    packaging.list_address = 'packaging@lists.fedoraproject.org'
+    packaging.subscribed = False
+
+    ## categories for threads
     todo_category = Category()
     todo_category.name = 'todo'
     todo_category.description = "list of tasks to be completed"
@@ -135,18 +160,21 @@ def generate_random_thread():
     email = Email()
     email.email_id = 1
     email.title = 'Headsup! krb5 ccache defaults are changing in Rawhide'
-    email.age = '6 days'
+    email.age = '7 days'
+    email.date = datetime.date.today() - datetime.timedelta(days=7)
     email.body = '''Dear fellow developers,
 with the upcoming Fedora 18 release (currently Rawhide) we are going to change the place where krb5 credential cache files are saved by default.
 
 The new default for credential caches will be the /run/user/username directory.
 '''
+    email.category = todo_category
     email.tags.extend(['rawhide', 'krb5'])
     email.participants = set(['Stephen Gallagher', 'Toshio Kuratomi', 'Kevin Fenzi', 'Seth Vidal'])
     email.answers.extend([1,2,3,4,5,6,7,8,9,10,11,12])
     email.liked = 1
     email.author = 'Stephen Gallagher'
     email.avatar = 'http://fedorapeople.org/~sgallagh/karrde712.png'
+    email.list = packaging
     threads.append(email)
 
     ## 2
@@ -154,6 +182,7 @@ The new default for credential caches will be the /run/user/username directory.
     email.email_id = 2
     email.title = 'Problem in packaging kicad'
     email.age = '6 days'
+    email.date = datetime.date.today() - datetime.timedelta(days=6)
     email.body = '''Paragraph 1: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. '''
     email.tags.extend(['packaging', 'kicad'])
     email.participants = set(['Pierre-Yves Chibon', 'Tom "spot" Callaway', 'Toshio Kuratomi', 'Kevin Fenzi'])
@@ -161,13 +190,15 @@ The new default for credential caches will be the /run/user/username directory.
     email.liked = 0
     email.author = 'Pierre-Yves Chibon'
     email.avatar = 'https://secure.gravatar.com/avatar/072b4416fbfad867a44bc7a5be5eddb9'
+    email.list = cloud
     threads.append(email)
 
     ## 3
     email = Email()
     email.email_id = 3
     email.title = 'Update Java Guideline'
-    email.age = '6 days'
+    email.age = '10 days'
+    email.date = datetime.date.today() - datetime.timedelta(days=10)
     email.body = '''Paragraph 1: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. '''
     email.tags.extend(['rawhide', 'krb5'])
     email.participants = set(['Stanislav Ochotnický', 'Tom "spot" Callaway', 'Stephen Gallagher', 'Jason Tibbitts', 'Rex Dieter', 'Toshio Kuratomi'])
@@ -176,13 +207,15 @@ The new default for credential caches will be the /run/user/username directory.
     email.category = todo_category
     email.author = 'Stanislav Ochotnický'
     email.avatar = 'http://sochotni.fedorapeople.org/sochotni.jpg'
+    email.list = cloud
     threads.append(email)
 
     ## 4
     email = Email()
     email.email_id = 4
     email.title = 'Agenda for the next Board Meeting'
-    email.age = '6 days'
+    email.age = '1 month'
+    email.date = datetime.date.today() - datetime.timedelta(days=30)
     email.body = '''Paragraph 1: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. '''
     email.tags.extend(['agenda', 'board'])
     email.participants = set(['Toshio Kuratomi', 'Tom "spot" Callaway', 'Robyn Bergeron', 'Max Spevack'])
@@ -191,13 +224,15 @@ The new default for credential caches will be the /run/user/username directory.
     email.category = agenda_category
     email.author = 'Toshio Kuratomi'
     email.avatar = 'https://secure.gravatar.com/avatar/7a9c1d88f484c9806bceca0d6d91e948'
+    email.list = cloud
     threads.append(email)
 
     ## 5
     email = Email()
     email.email_id = 5
     email.title = 'I told you so! '
-    email.age = '6 days'
+    email.age = '2 days'
+    email.date = datetime.date.today() - datetime.timedelta(days=2)
     email.body = '''Paragraph 1: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. '''
     email.tags.extend(['systemd', 'mp3', 'pulseaudio'])
     email.participants = set(['Pierre-Yves Chibon'])
@@ -206,6 +241,7 @@ The new default for credential caches will be the /run/user/username directory.
     email.author = 'Pierre-Yves Chibon'
     email.avatar = 'https://secure.gravatar.com/avatar/072b4416fbfad867a44bc7a5be5eddb9'
     email.category = dead_category
+    email.list = cloud
     threads.append(email)
 
     return threads

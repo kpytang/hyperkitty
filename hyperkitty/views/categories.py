@@ -30,14 +30,13 @@ from hyperkitty.lib.view_helpers import show_mlist
 from hyperkitty.lib.mailman import is_mlist_authorized
 
 if settings.USE_MOCKUPS:
-    from hyperkitty.lib.mockup import generate_threads_per_category
+    from hyperkitty.lib.mockup import generate_threads_per_category, generate_random_thread
 
 def categories(request):
+    categories = {}
     if settings.USE_MOCKUPS:
         categories, threads_by_category = generate_threads_per_category()
-        categories = sorted(categories, key=lambda category:category.name)       
-    else:
-        categories = {}
+        categories = sorted(categories, key=lambda category:category.name)
 
     context = {
         'view_name': 'categories',
@@ -45,3 +44,23 @@ def categories(request):
         'category_threads': threads_by_category,
     }
     return render(request, "categories.html", context)
+
+def category(request, category_label):
+    category_threads = []
+    category_obj = None
+    if settings.USE_MOCKUPS:
+        categories, threads_by_category = generate_threads_per_category()
+        for category in categories:
+            if category.name == category_label:
+                break
+        if category is not None:
+            if category.name in threads_by_category:
+                category_threads = threads_by_category[category.name]
+            category_threads.sort(key=lambda thread:thread.date)
+
+    context = {
+        'view_name': 'categories',
+        'category': category,
+        'category_threads': category_threads,
+    }
+    return render(request, "category.html", context)

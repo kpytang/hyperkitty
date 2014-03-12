@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+{% load url from future %}
+{% load i18n %}
+{% load hk_generic %}
+
+{% block title %}
+{% trans 'Category details' %} - {{ category }} - {{ app_name|title }}
+{% endblock %}
+
+{% block content %}
+
+<div id="categories">
+
+    <div class="row header">
+        <div class="col-tn-12 col-md-8">
+            <span {% if category.color %} style="background:#{{ category.color }}" class="
+                {% else %}class="label-default {% endif %}label">
+            {{ category.name }}</span>
+        </div>
+        <div class="btn-group col-tn-12">
+            <p class="hide-switches">
+                <label><input type="checkbox" value="unsubscribed" /> Hide unsubscribed lists</label>
+                <label><input type="checkbox" value="subscribed" /> Hide subscribed lists</label>
+            </p>
+        </div>
+    </div> <!-- /row, container for filters and btns -->
+
+    <p class="table-title hidden-sm hidden-md hidden-lg">Posts per category (past 30 days)</p>
+    <table class="table category-list">
+        <thead class="hidden-tn hidden-xs">
+            <tr>
+                <th>list</th>
+                <th>discussion</th>
+                <th>started by</th>
+                <th>comments</th>
+                <th>age</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for thread in category_threads %}
+            <tr>
+                <td class="">
+                    {{ thread.list.name }}
+                </td>
+                <td class="">
+                    <span>{{ thread.title }} </span>
+                </td>
+                <td class="">
+                    <span>{{ thread.author }} </span>
+                </td>
+                <td class="">
+                    <i class="icomoon discussion"></i> 
+                    <span>{{ thread.answers|length }} </span>
+                </td>
+                <td class="">
+                    <span>{{ thread.age }} </span>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table> <!-- /container for list of category labels -->
+
+</div>
+{% endblock %}
+
+{% block additionaljs %}
+
+<script>
+    // Filter
+    $(".hide-switches input").click(function() {
+        var hide_by_class = {};
+        $(".hide-switches input").each(function() {
+            var cls = $(this).val();
+            hide_by_class[cls] = $(this).prop("checked");
+        });
+        $("table.category-list tr.category").each(function() {
+            var must_hide = false;
+            for (cls in hide_by_class) {
+                if ($(this).hasClass(cls) && hide_by_class[cls]) {
+                    must_hide = true;
+                }
+            }
+            if (must_hide) {
+                $(this).hide();
+            } else {
+                $(this).show();
+            }
+        });
+    });
+    // click behavior for each row
+    $("table.category-list tr.category").click(function(e) {
+        document.location.href = $(this).find("a.category-link").attr("href");
+    });
+</script>
+
+{% endblock %}

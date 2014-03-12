@@ -160,7 +160,7 @@ def generate_random_thread():
     ## 1
     email = Email()
     email.email_id = 1
-    email.title = 'Headsup! krb5 ccache defaults are changing in Rawhide'
+    email.title = 'Headsup! krb5 ccache defaults are changing in Rawhide [Lorem ipsum dolor sit amet, consectetur adipisicing elit]'
     email.age = '7 days'
     email.date = datetime.date.today() - datetime.timedelta(days=7)
     email.body = '''Dear fellow developers,

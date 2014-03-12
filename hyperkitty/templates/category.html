@@ -12,7 +12,7 @@
 <div id="category_overview">
 
     <div class="row header">
-        <div class="col-tn-12 col-md-8">
+        <div class="col-tn-12">
             <span {% if category.color %} style="background:#{{ category.color }}" class="
                 {% else %}class="label-default {% endif %}label">
             {{ category.name }}</span>
@@ -28,31 +28,45 @@
     <table class="table list">
         <thead class="hidden-tn hidden-xs">
             <tr>
-                <th>list</th>
-                <th>discussion</th>
-                <th>started by</th>
-                <th>comments</th>
-                <th>age</th>
+                <th class="col-sm-2">list</th>
+                <th class="col-sm-4 col-lg-5">discussion</th>
+                <th class="col-sm-2">started by</th>
+                <th class="col-sm-2 col-lg-1">comments</th>
+                <th class="col-sm-2 col-lg-1">age</th>
             </tr>
         </thead>
         <tbody>
             {% for thread in category_threads %}
             <tr class="thread {% if thread.list.subscribed %}subscribed {% else %}unsubscribed{% endif %}"">
-                <td class="col-tn-2">
+                <td class="list-name col-tn-2">
                     {{ thread.list.name }}
                 </td>
-                <td class="thread-title col-tn-5">
-                    <a class="thread-link" href="#">{{ thread.title }}</a>
+                <td class="thread-title col-tn-10">
+                    <div class="thread-link">
+                        <a href="{% url 'thread' threadid=thread.email_id mlist_fqdn=thread.list.list_address %}">{{ thread.title }}</a>
+                    </a>
+                    </div>
+                    <span class="hidden-sm hidden-md hidden-lg">
+                        {{ thread.author }}
+                        <br>
+                        <span class="thread-posts col-tn-12 col-xs-6">
+                            <i class="icomoon discussion"></i>
+                            {{ thread.answers|length }} posts
+                        </span>
+                        <span class="thread-age col-tn-12 col-xs-6">
+                            Last post: {{ thread.age }} ago
+                        </span>
+                    </span>
                 </td>
-                <td class="col-tn-2">
-                    <span>{{ thread.author }}</span>
+                <td class="hidden-tn hidden-xs">
+                    {{ thread.author }}
                 </td>
-                <td class="col-tn-2">
+                <td class="hidden-tn hidden-xs">
                     <i class="icomoon discussion"></i> 
-                    <span>{{ thread.answers|length }}</span>
+                    {{ thread.answers|length }}
                 </td>
-                <td class="col-tn-1">
-                    <span>{{ thread.age }}</span>
+                <td class="hidden-tn hidden-xs">
+                    {{ thread.age }}
                 </td>
             </tr>
             {% endfor %}
@@ -89,7 +103,16 @@
     });
     // click behavior for each row
     $("table.list tr.category").click(function(e) {
-        document.location.href = $(this).find("a.thread-link").attr("href");
+        document.location.href = $(this).find("a").attr("href");
+    });
+    // multiline ellipsis
+     $(window).resize(function() {
+        $("table.list div.thread-link").each(function() {
+            $(this).dotdotdot();
+        });
+    });
+    $("table.list div.thread-link").each(function() {
+            $(this).dotdotdot();
     });
 </script>
 

@@ -102,10 +102,16 @@
             border-right: 1px solid @rowBorderColor;
         }
 
+        .list-name {
+            word-wrap: break-word;
+        }
         .thread-title {
-            font-weight: bold;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            a {
+                font-weight: bold;
+            }
+            .thread-posts, .thread-age {
+                padding-left: 0;
+            }
         }
     }
 
@@ -115,12 +121,28 @@
 }
 
 @media (max-width: @screen-xs-max) {
-    #categories {
-        table.category-list {
+    #categories,
+    #category_overview {
+        table.list {
             margin-top: 0;
         }
-        td.category-stats {
-            .right();
+    }
+
+    #category_overview {
+        table.list td.thread-title {
+            font-weight: normal;
+            border-right: 1px solid @rowBorderColor;
+        }
+    }
+}
+
+@media (min-width: @screen-sm-min) {
+    #category_overview {
+        table.list {
+            table-layout: fixed;
+            div.thread-link {
+                max-height: 2.9em;
+            }
         }
     }
 }
